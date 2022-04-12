@@ -6,7 +6,7 @@
   "scripts": {
     "init": "node --loader ts-node/esm ./src/lib/init.ts",
     "dev": "next dev",
-    "postbuild_x": "next-sitemap",
+    "postbuild": "next-sitemap",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

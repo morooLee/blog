@@ -33,6 +33,8 @@ export default function Post({ post, series, content, toc, blog }: Props) {
     {
       url: `https://blog.moroo.dev${post.coverImageUrl}`,
       alt: `${post.title} Cover Image`,
+      width: 1200,
+      height: 1200,
     },
   ];
 

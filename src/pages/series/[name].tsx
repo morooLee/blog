@@ -20,6 +20,14 @@ export default function Series({ series, posts, blog }: Props) {
   const title = `Series - ${series.name} | Moroo Blog`;
   // const description = `Moroo's Blog Series - [ ${series.name} ]`;
   const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
+  const images = [
+    {
+      url: `https://blog.moroo.dev/assets/series/${series.name}/series-cover-image.jpeg`,
+      alt: `${series.name} Cover Image`,
+      width: 1200,
+      height: 1200,
+    },
+  ];
 
   const [searchPosts, setSearchPosts] = useState<Post[]>([...posts]);
 
@@ -52,6 +60,7 @@ export default function Series({ series, posts, blog }: Props) {
         // description={description}
         openGraph={{
           title,
+          images,
           // description,
           url,
         }}

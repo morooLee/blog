@@ -17,6 +17,14 @@ export default function Profile({ content, blog }: Props) {
   const title = 'Profile | Moroo Blog';
   // const description = "Moroo's Profile with Github";
   const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
+  const images = [
+    {
+      url: `https://blog.moroo.dev/assets/profile-image.jpeg`,
+      alt: `Moroo Profile Image`,
+      width: 1200,
+      height: 1200,
+    },
+  ];
 
   return (
     <>
@@ -29,7 +37,7 @@ export default function Profile({ content, blog }: Props) {
           title,
           // description,
           url,
-          // images,
+          images,
           profile: {
             firstName: 'Soon Han',
             lastName: 'Lee',
