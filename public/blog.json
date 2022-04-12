@@ -1,0 +1,586 @@
+{
+  "posts": [
+    {
+      "id": 8,
+      "slug": "마크다운에-대해-알아보기",
+      "title": "마크다운에 대해 알아보기",
+      "description": "마크다운의 역사 및 철학 등 마크다운에 대해 알아보고 기본 문법을 사용하는 법을 배워봅니다.",
+      "coverImageUrl": "/assets/posts/마크다운에-대해-알아보기/post-cover-image.jpeg",
+      "createdAt": "2022. 3. 28.",
+      "updatedAt": "2022. 4. 6.",
+      "category": {
+        "main": "Markup",
+        "sub": "Markdown"
+      },
+      "tags": [
+        "markdown",
+        "syntax",
+        "spec",
+        "마크다운",
+        "문법",
+        "구문"
+      ],
+      "series": null,
+      "published": true
+    },
+    {
+      "id": 7,
+      "slug": "깃허브-기반의-마크다운-이모지-모음",
+      "title": "깃허브 기반의 마크다운 이모지 모음",
+      "description": "깃허브 플랫폼에서 마크다운 문서에 사용 가능한 이모지들의 Short Code 모음집",
+      "coverImageUrl": "/assets/posts/깃허브-기반의-마크다운-이모지-모음/post-cover-image.jpeg",
+      "createdAt": "2022. 3. 21.",
+      "updatedAt": "2022. 3. 21.",
+      "category": {
+        "main": "Markup",
+        "sub": "Markdown"
+      },
+      "tags": [
+        "github",
+        "flavored",
+        "markdown",
+        "gfm",
+        "emoji",
+        "cheat-sheet",
+        "short-code",
+        "깃허브",
+        "마크다운",
+        "이모지"
+      ],
+      "series": null,
+      "published": true
+    },
+    {
+      "id": 6,
+      "slug": "이모지-및-이모티콘에-대한-이야기",
+      "title": "이모지 및 이모티콘에 대한 이야기",
+      "description": "이모지 및 이모티콘이 무엇인지 알아보고 이모지의 유니코드 결합 방식에 대해 배워봅시다.",
+      "coverImageUrl": "/assets/posts/이모지-및-이모티콘에-대한-이야기/post-cover-image.jpeg",
+      "createdAt": "2022. 3. 19.",
+      "updatedAt": "2022. 3. 19.",
+      "category": {
+        "main": "Markup",
+        "sub": "Markdown"
+      },
+      "tags": [
+        "markdown",
+        "emoji",
+        "html",
+        "unicode",
+        "github",
+        "vs16",
+        "skin-tone",
+        "zwj",
+        "emoticon",
+        "마크다운",
+        "유니코드",
+        "이모지",
+        "합성",
+        "스킨톤",
+        "깃허브",
+        "이모티콘"
+      ],
+      "series": null,
+      "published": true
+    },
+    {
+      "id": 5,
+      "slug": "nvm-installation-with-mac",
+      "title": "MacOS 환경에서 Homebrew로 NVM 설치하기",
+      "description": "NVM이 무엇인지 간략하게 설명하고 Mac OS 환경에서 Homebrew를 통해 NVM을 설치하고 NVM으로 Node를 관리하는 법을 알아봅니다.",
+      "coverImageUrl": "/assets/posts/nvm-installation-with-mac/post-cover-image.jpeg",
+      "createdAt": "2022. 3. 18.",
+      "updatedAt": "2022. 3. 18.",
+      "category": {
+        "main": "Development",
+        "sub": "NodeJS"
+      },
+      "tags": [
+        "nvm",
+        "mac",
+        "macos",
+        "homebrew",
+        "node",
+        "nodejs",
+        "맥",
+        "맥OS",
+        "노드",
+        "노드js",
+        "설치"
+      ],
+      "series": null,
+      "published": true
+    },
+    {
+      "id": 2,
+      "slug": "webdriverio-before-beginning",
+      "title": "시작하기 전에...",
+      "description": "WebdriverIO 시리즈를 시작하기 전에 필자가 WebdriverIO를 접하게 된 계기 및 간략한 소개 글입니다.",
+      "coverImageUrl": "/assets/series/WebdriverIO/series-cover-image.jpeg",
+      "createdAt": "2022. 2. 19.",
+      "updatedAt": "2022. 3. 4.",
+      "category": {
+        "main": "Test Automation",
+        "sub": "WebdriverIO"
+      },
+      "tags": [
+        "webdriverio",
+        "wdio",
+        "e2e",
+        "automation",
+        "test",
+        "자동화",
+        "테스트"
+      ],
+      "series": {
+        "name": "WebdriverIO",
+        "number": 1
+      },
+      "published": true
+    },
+    {
+      "id": 3,
+      "slug": "webdriverio-installation",
+      "title": "WebdriverIO 설치하기",
+      "description": "Typescript 기반의 WebdriverIO를 설치하는 법에 대해 설명하는 글입니다.",
+      "coverImageUrl": "/assets/series/WebdriverIO/series-cover-image.jpeg",
+      "createdAt": "2022. 2. 20.",
+      "updatedAt": "2022. 3. 4.",
+      "category": {
+        "main": "Test Automation",
+        "sub": "WebdriverIO"
+      },
+      "tags": [
+        "webdriverio",
+        "wdio",
+        "e2e",
+        "automation",
+        "test",
+        "자동화",
+        "테스트"
+      ],
+      "series": {
+        "name": "WebdriverIO",
+        "number": 2
+      },
+      "published": true
+    },
+    {
+      "id": 1,
+      "slug": "qa-developer-memes",
+      "title": "QA 관점에서 바라 본 QA와 Developer 밈들",
+      "description": "QA와 Developer의 이해 관계를 보여주는 밈들에 대해서 QA 관점에서 가볍게 바라본 지극히 개인적인 이야기입니다.",
+      "coverImageUrl": "/assets/posts/qa-developer-memes/post-cover-image.jpeg",
+      "createdAt": "2022. 2. 16.",
+      "updatedAt": "2022. 2. 16.",
+      "category": {
+        "main": "SQA",
+        "sub": "Etc"
+      },
+      "tags": [
+        "sqa",
+        "meme",
+        "qa",
+        "developer",
+        "개발자",
+        "밈"
+      ],
+      "series": null,
+      "published": true
+    }
+  ],
+  "categories": [
+    {
+      "name": "SQA",
+      "parent": null,
+      "children": [
+        "Etc"
+      ],
+      "postIds": [
+        1
+      ]
+    },
+    {
+      "name": "Etc",
+      "parent": "SQA",
+      "children": [],
+      "postIds": [
+        1
+      ]
+    },
+    {
+      "name": "Test Automation",
+      "parent": null,
+      "children": [
+        "WebdriverIO"
+      ],
+      "postIds": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "WebdriverIO",
+      "parent": "Test Automation",
+      "children": [],
+      "postIds": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "Development",
+      "parent": null,
+      "children": [
+        "NodeJS"
+      ],
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "NodeJS",
+      "parent": "Development",
+      "children": [],
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "Markup",
+      "parent": null,
+      "children": [
+        "Markdown"
+      ],
+      "postIds": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "Markdown",
+      "parent": "Markup",
+      "children": [],
+      "postIds": [
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "sqa",
+      "postIds": [
+        1
+      ]
+    },
+    {
+      "name": "meme",
+      "postIds": [
+        1
+      ]
+    },
+    {
+      "name": "qa",
+      "postIds": [
+        1
+      ]
+    },
+    {
+      "name": "developer",
+      "postIds": [
+        1
+      ]
+    },
+    {
+      "name": "개발자",
+      "postIds": [
+        1
+      ]
+    },
+    {
+      "name": "밈",
+      "postIds": [
+        1
+      ]
+    },
+    {
+      "name": "webdriverio",
+      "postIds": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "wdio",
+      "postIds": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "e2e",
+      "postIds": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "automation",
+      "postIds": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "test",
+      "postIds": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "자동화",
+      "postIds": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "테스트",
+      "postIds": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "nvm",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "mac",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "macos",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "homebrew",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "node",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "nodejs",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "맥",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "맥OS",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "노드",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "노드js",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "설치",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "markdown",
+      "postIds": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "emoji",
+      "postIds": [
+        6,
+        7
+      ]
+    },
+    {
+      "name": "html",
+      "postIds": [
+        6
+      ]
+    },
+    {
+      "name": "unicode",
+      "postIds": [
+        6
+      ]
+    },
+    {
+      "name": "github",
+      "postIds": [
+        6,
+        7
+      ]
+    },
+    {
+      "name": "vs16",
+      "postIds": [
+        6
+      ]
+    },
+    {
+      "name": "skin-tone",
+      "postIds": [
+        6
+      ]
+    },
+    {
+      "name": "zwj",
+      "postIds": [
+        6
+      ]
+    },
+    {
+      "name": "emoticon",
+      "postIds": [
+        6
+      ]
+    },
+    {
+      "name": "마크다운",
+      "postIds": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "유니코드",
+      "postIds": [
+        6
+      ]
+    },
+    {
+      "name": "이모지",
+      "postIds": [
+        6,
+        7
+      ]
+    },
+    {
+      "name": "합성",
+      "postIds": [
+        6
+      ]
+    },
+    {
+      "name": "스킨톤",
+      "postIds": [
+        6
+      ]
+    },
+    {
+      "name": "깃허브",
+      "postIds": [
+        6,
+        7
+      ]
+    },
+    {
+      "name": "이모티콘",
+      "postIds": [
+        6
+      ]
+    },
+    {
+      "name": "flavored",
+      "postIds": [
+        7
+      ]
+    },
+    {
+      "name": "gfm",
+      "postIds": [
+        7
+      ]
+    },
+    {
+      "name": "cheat-sheet",
+      "postIds": [
+        7
+      ]
+    },
+    {
+      "name": "short-code",
+      "postIds": [
+        7
+      ]
+    },
+    {
+      "name": "syntax",
+      "postIds": [
+        8
+      ]
+    },
+    {
+      "name": "spec",
+      "postIds": [
+        8
+      ]
+    },
+    {
+      "name": "문법",
+      "postIds": [
+        8
+      ]
+    },
+    {
+      "name": "구문",
+      "postIds": [
+        8
+      ]
+    }
+  ],
+  "series": [
+    {
+      "name": "WebdriverIO",
+      "postIds": [
+        2,
+        3
+      ]
+    }
+  ]
+}

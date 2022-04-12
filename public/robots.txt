@@ -1,0 +1,12 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://blog.moroo.dev
+
+# Sitemaps
+Sitemap: https://blog.moroo.dev/sitemap.xml
+
+# Daum WebMasterTool
+#DaumWebMasterTool:d5aa3154b8add384dff833fa8f4a228845bba7bf9338c081111d2681d5d9b646:8aTxgh3VWvtzl9QAER9Gsw==
