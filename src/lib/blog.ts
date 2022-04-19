@@ -77,6 +77,35 @@ export default class Blog {
     }
     return undefined;
   }
+  static getPostsContentBySearchKeyword(
+    serachKeywords: string[]
+  ): { id: number; slug: string }[] {
+    const files = fs.readdirSync(this._POST_DIR);
+    const findPosts: { id: number; slug: string }[] = [];
+
+    for (const file of files) {
+      const prefix = file.replace(/\.(md|mdx)$/, '');
+      const [id, slug] = prefix.split('_');
+
+      const { content } = matter(
+        fs.readFileSync(join(this._POST_DIR, file), 'utf8')
+      );
+
+      serachKeywords.forEach((serachKeyword) => {
+        if (content.includes(serachKeyword)) {
+          if (
+            !findPosts.find(
+              (post) => post.id === Number(id) && post.slug === slug
+            )
+          ) {
+            findPosts.push({ id: Number(id), slug });
+          }
+        }
+      });
+    }
+
+    return Array.from(new Set(findPosts));
+  }
   private static createPost(fileName: string): Post | undefined {
     const prefix = fileName.replace(/\.(md|mdx)$/, '');
     const [id, slug] = prefix.split('_');

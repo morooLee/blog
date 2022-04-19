@@ -5,10 +5,16 @@ import MainLayout from '../../components/layouts/MainLayout';
 import Location from 'src/components/Location';
 import PostSummary from 'src/components/PostLargeCard';
 import SearchInput from 'src/components/SearchInput';
-import { CollectionPageJsonLd, NextSeo } from 'next-seo';
+import { BreadcrumbJsonLd, CollectionPageJsonLd, NextSeo } from 'next-seo';
 import SortingList from 'src/components/SortingList';
 import NoDateMessage from 'src/components/NoDataMessage';
 import Link from 'next/link';
+import {
+  BreadcrumbJsonLD,
+  CollectionPageJsonLD,
+  ItemListJsonLD,
+  JsonLD,
+} from 'src/lib/JsonLD';
 
 interface Props {
   series: Series;
@@ -18,8 +24,8 @@ interface Props {
 export default function Series({ series, posts, blog }: Props) {
   const router = useRouter();
   const title = `Series - ${series.name} | Moroo Blog`;
-  // const description = `Moroo's Blog Series - [ ${series.name} ]`;
-  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
+  const description = `Moroo Blog - ${series.name} 시리즈인 포스트 모음`;
+  const url = decodeURI(`https://blog.moroo.dev/series/${series.name}`);
   const images = [
     {
       url: `https://blog.moroo.dev/assets/series/${series.name}/series-cover-image.jpeg`,
@@ -57,29 +63,34 @@ export default function Series({ series, posts, blog }: Props) {
       <NextSeo
         canonical={url}
         title={title}
-        // description={description}
+        description={description}
         openGraph={{
           title,
           images,
-          // description,
+          description,
           url,
         }}
       />
-      <CollectionPageJsonLd
+
+      <BreadcrumbJsonLD />
+      <CollectionPageJsonLD
         name={title}
-        hasPart={posts.map((post) => {
-          return {
-            about: post.description ?? '',
-            author: 'moroo',
-            name: post.title,
-            datePublished: post.updatedAt,
-            audience: 'Internet',
-            keywords: post.category.sub,
-            thumbnailUrl: post.coverImageUrl,
-            image: post.coverImageUrl,
-          };
-        })}
+        description={description}
+        image={{
+          url: images[0].url,
+          width: images[0].width,
+          height: images[0].height,
+          caption: images[0].alt,
+        }}
+        isPartOf={['https://blog.moroo.dev']}
+        posts={posts}
       />
+      <ItemListJsonLD
+        name={`${series.name} Series`}
+        description={description}
+        posts={posts}
+      />
+
       <MainLayout blog={blog}>
         <div>
           {/* <Location title={`Series - ${series.name}`}>

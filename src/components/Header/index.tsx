@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useDarkModeContext } from '../../lib/DarkModeContext';
-import { RiMenuFill, RiMoonLine, RiSunLine } from 'react-icons/ri';
+import { RiMenuFill, RiMoonLine, RiRssFill, RiSunLine } from 'react-icons/ri';
 import { useRouter } from 'next/router';
 import MainMenu from '../MainMenu';
 import { Media } from '../Media';
@@ -81,6 +81,17 @@ export default function Header({ blog, currentPost }: Props) {
                 <p title="PROFILE">PROFILE</p>
               </a>
             </Link>
+            <Link href="/series" as="/series">
+              <a
+                className={`inline-block ${
+                  router.pathname.startsWith('/series')
+                    ? 'text-header-logo'
+                    : 'text-muted'
+                }`}
+              >
+                <p title="SERIES">SERIES</p>
+              </a>
+            </Link>
             <Link href="/categories" as="/categories">
               <a
                 className={`inline-block ${
@@ -103,17 +114,6 @@ export default function Header({ blog, currentPost }: Props) {
                 <p title="TAGS">TAGS</p>
               </a>
             </Link>
-            <Link href="/series" as="/series">
-              <a
-                className={`inline-block ${
-                  router.pathname.startsWith('/series')
-                    ? 'text-header-logo'
-                    : 'text-muted'
-                }`}
-              >
-                <p title="SERIES">SERIES</p>
-              </a>
-            </Link>
             <Link href="/posts" as="/posts">
               <a
                 className={`inline-block ${
@@ -126,7 +126,12 @@ export default function Header({ blog, currentPost }: Props) {
               </a>
             </Link>
           </nav>
-          <div className="h-10 xl:w-62 2xl:w-80 pl-5 lg:px-5 flex flex-row justify-end text-2xl gap-5">
+          <div className="h-10 xl:w-62 2xl:w-80 pl-5 lg:px-5 flex flex-row items-center justify-end text-3xl gap-2">
+            <Link href="/rss/feed.xml" as="/rss/feed.xml">
+              <a>
+                <RiRssFill aria-label="Feed Subscribe" />
+              </a>
+            </Link>
             <button onClick={toggleDarkMode} aria-label="Expend Button">
               {isDarkMode ? (
                 <RiMoonLine aria-label="Dark Mode" />

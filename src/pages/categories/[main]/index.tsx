@@ -1,10 +1,16 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { NextSeo } from 'next-seo';
+import { BreadcrumbJsonLd, NextSeo } from 'next-seo';
 import MainLayout from '../../../components/layouts/MainLayout';
 import Location from 'src/components/Location';
 import SubCategoryList from 'src/components/SubCategoryList';
+import {
+  BreadcrumbJsonLD,
+  CollectionPageJsonLD,
+  ItemListJsonLD,
+  WebPageJsonLD,
+} from 'src/lib/JsonLD';
 
 interface Props {
   category: Category;
@@ -14,20 +20,41 @@ interface Props {
 export default function MainCategories({ category, posts, blog }: Props) {
   const router = useRouter();
   const title = `Main Category - ${category.name} | Moroo Blog`;
-  // const description = `Moroo's Blog Main Category - [ ${category.name} ]`;
-  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
+  const description = `Moroo Blog - ${category.name} 메인 카테고리의 포스트 모음`;
+  const url = decodeURI(`https://blog.moroo.dev/categories/${category.name}`);
+  const images = [
+    {
+      url: `https://blog.moroo.dev/assets/blog-cover-image.jpeg`,
+      alt: `Moroo Blog Cover Image`,
+      width: 1200,
+      height: 1200,
+    },
+  ];
 
   return (
     <>
       <NextSeo
         canonical={url}
         title={title}
-        // description={description}
+        description={description}
         openGraph={{
           title,
-          // description,
+          description,
           url,
         }}
+      />
+      <BreadcrumbJsonLD />
+      <WebPageJsonLD
+        name={title}
+        description={description}
+        url={url}
+        image={{
+          url: images[0].url,
+          width: images[0].width,
+          height: images[0].height,
+          caption: images[0].alt,
+        }}
+        isPartOf={['https://blog.moroo.dev/categories']}
       />
       <MainLayout blog={blog}>
         <div>

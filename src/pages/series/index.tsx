@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { useRouter } from 'next/router';
 import { GetStaticProps } from 'next';
-import { NextSeo } from 'next-seo';
+import { BreadcrumbJsonLd, NextSeo } from 'next-seo';
 import MainLayout from '../../components/layouts/MainLayout';
 import PostCardList from '../../components/PostCardList';
 import Location from 'src/components/Location';
@@ -9,6 +9,7 @@ import FoldingArrow from 'src/components/FoldingArrow';
 import SearchInput from 'src/components/SearchInput';
 import SortingList from 'src/components/SortingList';
 import NoDateMessage from 'src/components/NoDataMessage';
+import { BreadcrumbJsonLD, WebPageJsonLD } from 'src/lib/JsonLD';
 
 interface Props {
   blog: BlogData;
@@ -16,8 +17,16 @@ interface Props {
 export default function AllSeries({ blog }: Props) {
   const router = useRouter();
   const title = 'Series | Moroo Blog';
-  // const description = "Moroo's Blog Series";
-  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
+  const description = 'Moroo Blog - 시리즈 전체 모음';
+  const url = decodeURI('https://blog.moroo.dev/series');
+  const images = [
+    {
+      url: `https://blog.moroo.dev/assets/blog-cover-image.jpeg`,
+      alt: `Moroo Blog Cover Image`,
+      width: 1200,
+      height: 1200,
+    },
+  ];
 
   const [searchSeries, setSearchSeries] = useState<Series[]>([...blog.series]);
   const [isAllFolding, setIsAllFolding] = useState<boolean>(false);
@@ -60,12 +69,26 @@ export default function AllSeries({ blog }: Props) {
       <NextSeo
         canonical={url}
         title={title}
-        // description={description}
+        description={description}
         openGraph={{
           title,
-          // description,
+          description,
           url,
         }}
+      />
+      <BreadcrumbJsonLD />
+      <WebPageJsonLD
+        id="Series"
+        name={title}
+        description={description}
+        url={url}
+        image={{
+          url: images[0].url,
+          width: images[0].width,
+          height: images[0].height,
+          caption: images[0].alt,
+        }}
+        isPartOf={['https://blog.moroo.dev']}
       />
       <MainLayout blog={blog}>
         <div>

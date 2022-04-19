@@ -3,10 +3,11 @@ import { GetStaticProps } from 'next';
 import MainLayout from '../../components/layouts/MainLayout';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import compiledSource from '../../lib/compiledSource';
-import { NextSeo, SocialProfileJsonLd } from 'next-seo';
+import { BreadcrumbJsonLd, NextSeo, SocialProfileJsonLd } from 'next-seo';
 import { useRouter } from 'next/router';
 import Location from 'src/components/Location';
 import MarkdownComponents from 'src/components/MarkdownComponents';
+import { BreadcrumbJsonLD, PersonJsonLD, WebPageJsonLD } from 'src/lib/JsonLD';
 
 interface Props {
   content: MDXRemoteSerializeResult;
@@ -15,8 +16,8 @@ interface Props {
 export default function Profile({ content, blog }: Props) {
   const router = useRouter();
   const title = 'Profile | Moroo Blog';
-  // const description = "Moroo's Profile with Github";
-  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
+  const description = 'Moroo Profile with Github';
+  const url = decodeURI('https://blog.moroo.dev/profile');
   const images = [
     {
       url: `https://blog.moroo.dev/assets/profile-image.jpeg`,
@@ -31,11 +32,11 @@ export default function Profile({ content, blog }: Props) {
       <NextSeo
         canonical={url}
         title={title}
-        // description={description}
+        description={description}
         openGraph={{
           type: 'profile',
           title,
-          // description,
+          description,
           url,
           images,
           profile: {
@@ -46,15 +47,20 @@ export default function Profile({ content, blog }: Props) {
           },
         }}
       />
-      <SocialProfileJsonLd
-        type="Person"
-        name="moroo"
-        url="https://blog.moroo.dev"
-        sameAs={[
-          'https://github.com/morooLee',
-          'https://www.linkedin.com/in/moroo',
-          'mailto:moroo.lee@gmail.com',
-        ]}
+      <PersonJsonLD />
+      <BreadcrumbJsonLD />
+      <WebPageJsonLD
+        id="Profile"
+        name={title}
+        description={description}
+        url={url}
+        image={{
+          url: images[0].url,
+          width: images[0].width,
+          height: images[0].height,
+          caption: images[0].alt,
+        }}
+        isPartOf={['https://blog.moroo.dev']}
       />
       <MainLayout blog={blog}>
         <div>

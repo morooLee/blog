@@ -2,13 +2,22 @@ import React from 'react';
 import type { GetStaticProps } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { NextSeo } from 'next-seo';
+import {
+  ArticleJsonLd,
+  BreadcrumbJsonLd,
+  CollectionPageJsonLd,
+  LogoJsonLd,
+  NextSeo,
+  SiteLinksSearchBoxJsonLd,
+  SocialProfileJsonLd,
+} from 'next-seo';
 import MainLayout from 'src/components/layouts/MainLayout';
 import Location from 'src/components/Location';
 import PostCard from 'src/components/PostCard';
 import PostLargeCard from 'src/components/PostLargeCard';
 import Link from 'next/link';
 import BlogCoverImage from 'public/assets/blog-cover-image.jpeg';
+import { BreadcrumbJsonLD, JsonLD, WebSiteJsonLD } from 'src/lib/JsonLD';
 
 interface Props {
   blog: BlogData;
@@ -16,7 +25,15 @@ interface Props {
 export default function Home({ blog }: Props) {
   const router = useRouter();
   const title = 'Home | Moroo Blog';
-  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
+  const url = 'https://blog.moroo.dev';
+  const images = [
+    {
+      url: `https://blog.moroo.dev/assets/blog-cover-image.jpeg`,
+      alt: `Moroo Blog Cover Image`,
+      width: 1200,
+      height: 1200,
+    },
+  ];
 
   return (
     <>
@@ -26,8 +43,11 @@ export default function Home({ blog }: Props) {
         openGraph={{
           title,
           url,
+          images,
         }}
       />
+      <BreadcrumbJsonLD />
+      <WebSiteJsonLD />
       <MainLayout blog={blog}>
         <div className="pb-10">
           <Location title="hello">

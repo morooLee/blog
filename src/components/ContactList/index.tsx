@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import {
+  RiFacebookBoxFill,
   RiGithubFill,
   RiLinkedinBoxFill,
   RiMailFill,
@@ -32,17 +33,26 @@ export default function ContactList({ className }: Props) {
             <RiLinkedinBoxFill aria-label="Linkedin Link" />
           </a>
         </li>
-        <li className="list-none text-icon">
-          <a href="mailto:moroo.lee@gmail.com">
-            <RiMailFill aria-label="G-Mail Address" />
-          </a>
-        </li>
-        <li className="list-none text-icon">
+        {/* <li className="list-none text-icon">
           <Link href="/rss/feed.xml" as="/rss/feed.xml">
             <a>
               <RiRssFill aria-label="Feed Subscribe" />
             </a>
           </Link>
+        </li> */}
+        <li className="list-none text-icon">
+          <a
+            href="https://www.facebook.com/moroo.lee"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <RiFacebookBoxFill aria-label="Feed Subscribe" />
+          </a>
+        </li>
+        <li className="list-none text-icon">
+          <a href="mailto:moroo.lee@gmail.com">
+            <RiMailFill aria-label="G-Mail Address" />
+          </a>
         </li>
       </ul>
     </address>

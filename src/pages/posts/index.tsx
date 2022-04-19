@@ -1,22 +1,24 @@
-import React, { useState, ChangeEvent, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { GetStaticProps } from 'next';
-import { CollectionPageJsonLd, NextSeo } from 'next-seo';
+import { BreadcrumbJsonLd, CollectionPageJsonLd, NextSeo } from 'next-seo';
 import MainLayout from '../../components/layouts/MainLayout';
 import PostLargeCard from '../../components/PostLargeCard';
 import Location from 'src/components/Location';
-import SearchInput from 'src/components/SearchInput';
 import SortingList from 'src/components/SortingList';
 import NoDataMessage from 'src/components/NoDataMessage';
+import { BreadcrumbJsonLD } from 'src/lib/JsonLD';
 
 interface Props {
   blog: BlogData;
 }
 export default function Posts({ blog }: Props) {
   const router = useRouter();
+  const query = router.query;
+
   const title = 'Posts | Moroo Blog';
-  // const description = "Moroo's Blog Posts";
-  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
+  const description = 'Moroo Blog - 포스트 전체 모음';
+  const url = decodeURI('https://blog.moroo.dev/posts');
 
   const [searchPosts, setSearchPosts] = useState<Post[]>([...blog.posts]);
 
@@ -36,24 +38,26 @@ export default function Posts({ blog }: Props) {
   //   }
   // }
 
-  useEffect(() => {
-    setSearchPosts([...blog.posts]);
-  }, [blog.posts]);
+  // useEffect(() => {
+  //   setSearchPosts([...blog.posts]);
+  // }, [blog.posts]);
 
   return (
     <>
       <NextSeo
         canonical={url}
         title={title}
-        // description={description}
+        description={description}
         openGraph={{
           title,
-          // description,
+          description,
           url,
         }}
       />
+      <BreadcrumbJsonLD />
       <CollectionPageJsonLd
         name={title}
+        description={description}
         hasPart={blog.posts.map((post) => {
           return {
             about: post.description ?? '',

@@ -1,7 +1,7 @@
 import React, { useState, MouseEvent, ChangeEvent, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { GetStaticProps } from 'next';
-import { NextSeo } from 'next-seo';
+import { BreadcrumbJsonLd, NextSeo } from 'next-seo';
 import MainLayout from '../../components/layouts/MainLayout';
 import PostCardList from '../../components/PostCardList';
 import FoldingArrow from '../../components/FoldingArrow';
@@ -9,6 +9,7 @@ import Location from 'src/components/Location';
 import SearchInput from 'src/components/SearchInput';
 import SortingList from 'src/components/SortingList';
 import NoDateMessage from 'src/components/NoDataMessage';
+import { BreadcrumbJsonLD, JsonLD, WebPageJsonLD } from 'src/lib/JsonLD';
 
 interface Props {
   blog: BlogData;
@@ -19,8 +20,16 @@ export default function Tags({ blog }: Props) {
   const query = router.query;
 
   const title = 'Tags | Moroo Blog';
-  // const description = "Moroo's Blog Tags";
-  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
+  const description = 'Moroo Blog - 태그 전체 모음';
+  const url = decodeURI('https://blog.moroo.dev/tags');
+  const images = [
+    {
+      url: `https://blog.moroo.dev/assets/blog-cover-image.jpeg`,
+      alt: `Moroo Blog Cover Image`,
+      width: 1200,
+      height: 1200,
+    },
+  ];
 
   const [isAll, setIsAll] = useState<boolean>(true);
   const [currentTags, setCurrentTags] = useState<Tag[]>([...blog.tags]);
@@ -102,10 +111,40 @@ export default function Tags({ blog }: Props) {
       <NextSeo
         canonical={url}
         title={title}
+        description={description}
         openGraph={{
           title,
+          description,
           url,
         }}
+      />
+      {/* <JsonLD
+        webpage={{
+          id: 'TagsWebPage',
+          name: 'Tags',
+          description: '',
+          url: 'https://blog.moroo.dev/tags',
+          image: {
+            url: 'https://blog.moroo.dev/assets/blog-cover-image.jpeg',
+            width: 1200,
+            height: 1200,
+            caption: 'Blog Cover Image',
+          },
+        }}
+      /> */}
+      <BreadcrumbJsonLD />
+      <WebPageJsonLD
+        id="Tags"
+        name={title}
+        description={description}
+        url={url}
+        image={{
+          url: images[0].url,
+          width: images[0].width,
+          height: images[0].height,
+          caption: images[0].alt,
+        }}
+        isPartOf={['https://blog.moroo.dev']}
       />
       <MainLayout blog={blog}>
         <div>

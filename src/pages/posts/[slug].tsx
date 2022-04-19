@@ -7,7 +7,7 @@ import { useDarkModeContext } from '../../lib/DarkModeContext';
 import PostLayout from '../../components/layouts/PostLayout';
 import PostLargeCard from '../../components/PostLargeCard';
 import compiledSource from '../../lib/compiledSource';
-import { ArticleJsonLd, NextSeo } from 'next-seo';
+import { ArticleJsonLd, BreadcrumbJsonLd, NextSeo } from 'next-seo';
 import Location from 'src/components/Location';
 import SeriesPostLinks from 'src/components/SeriesLinks';
 import Link from 'next/link';
@@ -16,6 +16,12 @@ import Blog from 'src/lib/blog';
 import MarkdownComponents from 'src/components/MarkdownComponents';
 import { TocItem } from 'src/components/TocAside/TocItem';
 import { TocLink } from 'src/components/TocAside/TocLink';
+import { JsonLd } from 'next-seo/lib/jsonld/jsonld';
+import {
+  ArticleJsonLD,
+  BreadcrumbJsonLD,
+  ItemListJsonLD,
+} from 'src/lib/JsonLD';
 
 interface Props {
   post: Post;
@@ -28,11 +34,11 @@ export default function Post({ post, series, content, toc, blog }: Props) {
   const router = useRouter();
   const title = `${post.title} | Moroo Blog`;
   const description = post.description;
-  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
+  const url = decodeURI(`https://blog.moroo.dev/posts/${post.slug}`);
   const images = [
     {
-      url: `https://blog.moroo.dev${post.coverImageUrl}`,
-      alt: `${post.title} Cover Image`,
+      url: post.coverImageUrl,
+      alt: `${post.title} Post Cover Image`,
       width: 1200,
       height: 1200,
     },
@@ -119,17 +125,34 @@ export default function Post({ post, series, content, toc, blog }: Props) {
           },
         }}
       />
-      <ArticleJsonLd
+      <BreadcrumbJsonLD />
+      <ArticleJsonLD post={post} />
+      <ItemListJsonLD
+        name={`${post.category.sub} Category`}
+        description={`${post.title} 포스트의 ${post.category.sub} 카테고리 모음`}
+        posts={blog.posts.filter(
+          ({ category }) => category.sub === post.category.sub
+        )}
+      />
+      {series ? (
+        <ItemListJsonLD
+          name={`${post.series} Series`}
+          description={`${post.title} 포스트의 시리즈 모음`}
+          posts={blog.posts.filter(({ series }) => series === post.series)}
+        />
+      ) : null}
+      {/* <JsonLd
+        type="Article"
         url={url}
         title={title}
         images={images ? images.map((image) => image.url) : []}
-        datePublished={post.createdAt}
+        datePublished={post.updatedAt}
         dateModified={post.updatedAt}
         authorName={['moroo']}
         publisherName="moroo"
-        publisherLogo="https://blog.moroo.dev/assets/cover_image.jpg"
+        publisherLogo="https://blog.moroo.dev/assets/moroo.svg"
         description={description}
-      />
+      /> */}
       <PostLayout
         blog={blog}
         currentPost={post}

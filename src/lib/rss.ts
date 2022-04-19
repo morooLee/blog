@@ -24,7 +24,7 @@ export function generateRssFeed(blog: BlogData) {
     language: 'ko-KR',
     image: 'https://blog.moroo.dev/assets/cover-image.jpeg',
     favicon: 'https://blog.moroo.dev/assets/favicon.png',
-    copyright: `All rights reserved ${date.getFullYear()}, Moroo`,
+    copyright: 'All rights reserved 2021, Moroo',
     updated: date,
     generator: 'Feed for Node.js',
     feedLinks: {
@@ -94,6 +94,10 @@ export function generateRssFeed(blog: BlogData) {
         },
         {
           name: 'IT',
+          domain: 'https://blog.moroo.dev/categories',
+        },
+        {
+          name: 'QA',
           domain: 'https://blog.moroo.dev/categories',
         },
         {
