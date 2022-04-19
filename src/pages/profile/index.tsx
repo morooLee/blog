@@ -20,7 +20,7 @@ export default function Profile({ content, blog }: Props) {
   const url = decodeURI('https://blog.moroo.dev/profile');
   const images = [
     {
-      url: `https://blog.moroo.dev/assets/profile-image.jpeg`,
+      url: `https://blog.moroo.dev/assets/blog-cover-image.jpeg`,
       alt: `Moroo Profile Image`,
       width: 1200,
       height: 1200,
