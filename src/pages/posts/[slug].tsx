@@ -37,7 +37,7 @@ export default function Post({ post, series, content, toc, blog }: Props) {
   const url = decodeURI(`https://blog.moroo.dev/posts/${post.slug}`);
   const images = [
     {
-      url: post.coverImageUrl,
+      url: 'https://blog.moroo.dev' + post.coverImageUrl,
       alt: `${post.title} Post Cover Image`,
       width: 1200,
       height: 1200,
