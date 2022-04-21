@@ -20,6 +20,7 @@ type Theme =
   | 'gruvbox-dark';
 
 interface Props {
+  className?: string;
   src?: string;
   repo: string;
   type: Type;
@@ -35,6 +36,7 @@ export default function ReactUtterances(props: Props) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const scriptRef = useRef<HTMLDivElement>(null);
   const {
+    className,
     src,
     repo,
     theme,
@@ -111,7 +113,14 @@ export default function ReactUtterances(props: Props) {
   }, [theme, isLoading]);
 
   return (
-    <div className={`react-utterances ${theme}`} ref={scriptRef}>
+    <div
+      className={
+        className
+          ? `react-utterances ${theme} ${className}`
+          : `react-utterances ${theme}`
+      }
+      ref={scriptRef}
+    >
       {isLoading ? <div>Loading script...</div> : null}
     </div>
   );

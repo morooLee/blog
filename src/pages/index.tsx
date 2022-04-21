@@ -18,6 +18,7 @@ import PostLargeCard from 'src/components/PostLargeCard';
 import Link from 'next/link';
 import BlogCoverImage from 'public/assets/blog-cover-image.jpeg';
 import { BreadcrumbJsonLD, JsonLD, WebSiteJsonLD } from 'src/lib/JsonLD';
+import Adsense from 'src/components/Adsense';
 
 interface Props {
   blog: BlogData;
@@ -171,6 +172,15 @@ export default function Home({ blog }: Props) {
               );
             })}
           </ul>
+        </div>
+        <div className="px-5 pb-10">
+          <Adsense
+            style={{ display: 'block' }}
+            className="px-5"
+            adClient="ca-pub-5229752344777211"
+            adSlot={8271717976}
+            adFormat="autorelaxed"
+          />
         </div>
       </MainLayout>
     </>

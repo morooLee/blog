@@ -10,6 +10,7 @@ import SearchInput from 'src/components/SearchInput';
 import SortingList from 'src/components/SortingList';
 import NoDateMessage from 'src/components/NoDataMessage';
 import { BreadcrumbJsonLD, JsonLD, WebPageJsonLD } from 'src/lib/JsonLD';
+import Adsense from 'src/components/Adsense';
 
 interface Props {
   blog: BlogData;
@@ -253,7 +254,15 @@ export default function Tags({ blog }: Props) {
             <NoDateMessage />
           )}
         </div>
-        <div className="px-5 pb-5"></div>
+        <div className="px-5 pb-10">
+          <Adsense
+            style={{ display: 'block' }}
+            className="px-5"
+            adClient="ca-pub-5229752344777211"
+            adSlot={8271717976}
+            adFormat="autorelaxed"
+          />
+        </div>
       </MainLayout>
     </>
   );

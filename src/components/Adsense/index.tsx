@@ -6,7 +6,13 @@ declare global {
   }
 }
 
-type AdFormatType = 'auto' | 'fluid' | 'rectangle' | 'vertical' | 'horizontal';
+type AdFormatType =
+  | 'auto'
+  | 'fluid'
+  | 'rectangle'
+  | 'vertical'
+  | 'horizontal'
+  | 'autorelaxed';
 type AdLayoutType = 'in-article';
 
 interface Props {

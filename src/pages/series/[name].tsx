@@ -15,6 +15,7 @@ import {
   ItemListJsonLD,
   JsonLD,
 } from 'src/lib/JsonLD';
+import Adsense from 'src/components/Adsense';
 
 interface Props {
   series: Series;
@@ -157,6 +158,15 @@ export default function Series({ series, posts, blog }: Props) {
           ) : (
             <NoDateMessage />
           )}
+        </div>
+        <div className="px-5 pb-10">
+          <Adsense
+            style={{ display: 'block' }}
+            className="px-5"
+            adClient="ca-pub-5229752344777211"
+            adSlot={8271717976}
+            adFormat="autorelaxed"
+          />
         </div>
       </MainLayout>
     </>

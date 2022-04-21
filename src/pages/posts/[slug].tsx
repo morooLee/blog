@@ -203,13 +203,21 @@ export default function Post({ post, series, content, toc, blog }: Props) {
           className="daum-wm-content markdown dark:markdown-invert max-w-none p-5"
         >
           <Adsense
-            style={{ display: 'block', textAlign: 'center' }}
+            style={{ display: 'block' }}
+            className="px-5"
             adClient="ca-pub-5229752344777211"
             adSlot={3625286179}
             adLayout="in-article"
             adFormat="fluid"
           />
           <MDXRemote {...content} components={MarkdownComponents} />
+          <Adsense
+            style={{ display: 'block' }}
+            adClient="ca-pub-5229752344777211"
+            adSlot={3257760132}
+            adLayout="in-article"
+            adFormat="fluid"
+          />
         </article>
         {post.series ? (
           <div className="mx-5 pt-5 mb-10 border-t">
@@ -230,20 +238,23 @@ export default function Post({ post, series, content, toc, blog }: Props) {
             />
           </div>
         ) : null}
-        <Adsense
-          style={{ display: 'block', textAlign: 'center' }}
-          adClient="ca-pub-5229752344777211"
-          adSlot={3257760132}
-          adLayout="in-article"
-          adFormat="fluid"
-        />
         <ReactUtterances
+          className="pt-10"
           repo="morooLee/github-pages"
           type="pathname"
           label="comments"
           theme={isDarkMode ? 'github-dark' : 'github-light'}
           async={false}
         />
+        <div className="px-5 pb-10">
+          <Adsense
+            style={{ display: 'block' }}
+            className="px-5"
+            adClient="ca-pub-5229752344777211"
+            adSlot={8271717976}
+            adFormat="autorelaxed"
+          />
+        </div>
       </PostLayout>
     </>
   );

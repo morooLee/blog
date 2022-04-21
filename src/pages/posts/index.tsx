@@ -8,6 +8,7 @@ import Location from 'src/components/Location';
 import SortingList from 'src/components/SortingList';
 import NoDataMessage from 'src/components/NoDataMessage';
 import { BreadcrumbJsonLD } from 'src/lib/JsonLD';
+import Adsense from 'src/components/Adsense';
 
 interface Props {
   blog: BlogData;
@@ -110,6 +111,15 @@ export default function Posts({ blog }: Props) {
           ) : (
             <NoDataMessage />
           )}
+        </div>
+        <div className="px-5 pb-10">
+          <Adsense
+            style={{ display: 'block' }}
+            className="px-5"
+            adClient="ca-pub-5229752344777211"
+            adSlot={8271717976}
+            adFormat="autorelaxed"
+          />
         </div>
       </MainLayout>
     </>
