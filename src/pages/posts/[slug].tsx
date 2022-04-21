@@ -246,10 +246,9 @@ export default function Post({ post, series, content, toc, blog }: Props) {
           theme={isDarkMode ? 'github-dark' : 'github-light'}
           async={false}
         />
-        <div className="px-5 pb-10">
+        <div className="px-5 pb-5">
           <Adsense
             style={{ display: 'block' }}
-            className="px-5"
             adClient="ca-pub-5229752344777211"
             adSlot={8271717976}
             adFormat="autorelaxed"

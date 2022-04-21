@@ -37,9 +37,10 @@ export default function Adsense({
   fullWidthResponsive,
 }: Props) {
   useEffect(() => {
-    window.onload = function () {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    };
+    // window.onload = function () {
+    //   (window.adsbygoogle = window.adsbygoogle || []).push({});
+    // };
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
   }, []);
 
   return (
@@ -47,11 +48,11 @@ export default function Adsense({
       className={className ? `adsbygoogle ${className}` : 'adsbygoogle'}
       style={style ?? { display: 'block' }}
       data-ad-client={adClient}
-      data-ad-slot={String(adSlot)}
+      data-ad-slot={adSlot}
       data-ad-layout={adLayout}
       data-ad-layout-key={adLayoutKey}
       data-ad-format={adFormat ?? 'auto'}
-      data-full-width-responsive={String(fullWidthResponsive) ?? 'true'}
+      data-full-width-responsive={fullWidthResponsive ?? 'true'}
     ></ins>
   );
 }

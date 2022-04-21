@@ -151,10 +151,9 @@ export default function AllSeries({ blog }: Props) {
             <NoDateMessage />
           )}
         </div>
-        <div className="px-5 pb-10">
+        <div className="px-5 pb-5">
           <Adsense
             style={{ display: 'block' }}
-            className="px-5"
             adClient="ca-pub-5229752344777211"
             adSlot={8271717976}
             adFormat="autorelaxed"
