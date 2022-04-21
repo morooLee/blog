@@ -48,16 +48,17 @@ export default function Adsense({
   }, []);
 
   return (
-    <ins
-      key={router.asPath.split('?')[0]}
-      className={className ? `adsbygoogle ${className}` : 'adsbygoogle'}
-      style={style ?? { display: 'block' }}
-      data-ad-client={adClient}
-      data-ad-slot={adSlot}
-      data-ad-layout={adLayout}
-      data-ad-layout-key={adLayoutKey}
-      data-ad-format={adFormat ?? 'auto'}
-      data-full-width-responsive={fullWidthResponsive ?? 'true'}
-    ></ins>
+    <div key={router.asPath.split('?')[0]}>
+      <ins
+        className={className ? `adsbygoogle ${className}` : 'adsbygoogle'}
+        style={style ?? { display: 'block' }}
+        data-ad-client={adClient}
+        data-ad-slot={adSlot}
+        data-ad-layout={adLayout}
+        data-ad-layout-key={adLayoutKey}
+        data-ad-format={adFormat ?? 'auto'}
+        data-full-width-responsive={fullWidthResponsive ?? 'true'}
+      ></ins>
+    </div>
   );
 }
