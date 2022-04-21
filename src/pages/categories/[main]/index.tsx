@@ -94,11 +94,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   });
 
   return {
-    props: {
-      category,
-      posts,
-      blog,
-    },
+    props: JSON.parse(
+      JSON.stringify({
+        category,
+        posts,
+        blog,
+      })
+    ),
   };
 };
 

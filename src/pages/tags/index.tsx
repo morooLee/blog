@@ -263,8 +263,10 @@ export const getStaticProps: GetStaticProps = async () => {
   const blog = (await import('public/blog.json')).default;
 
   return {
-    props: {
-      blog,
-    },
+    props: JSON.parse(
+      JSON.stringify({
+        blog,
+      })
+    ),
   };
 };

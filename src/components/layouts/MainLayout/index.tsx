@@ -40,10 +40,10 @@ export default function MainLayout({ children, blog }: Props) {
         >
           {children}
         </main>
-        <div className="hidden lg:fixed lg:w-[79rem] lg:mx-auto xl:mx-auto 2xl:w-[88rem]">
+        <div className="hidden lg:block fixed lg:w-[79rem] lg:mx-auto xl:mx-auto 2xl:w-[88rem]">
           <aside className="absolute w-full lg:w-62 lg:right-0 2xl:w-80 h-aside overflow-y-scroll scrollbar-hide">
             <div className="w-full lg:py-5 flex flex-col gap-2">
-              {/* <section className="bg-canvas border rounded-md">
+              <div className="bg-canvas border rounded-md">
                 <SectionSummary isFolding={false}>
                   <p className="text-accent text-xl font-semibold inline-block cursor-text">
                     AD
@@ -57,7 +57,7 @@ export default function MainLayout({ children, blog }: Props) {
                     />
                   </div>
                 </SectionContent>
-              </section> */}
+              </div>
             </div>
           </aside>
         </div>

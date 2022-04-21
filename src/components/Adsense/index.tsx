@@ -31,7 +31,9 @@ export default function Adsense({
   fullWidthResponsive,
 }: Props) {
   useEffect(() => {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    window.onload = function () {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    };
   }, []);
 
   return (

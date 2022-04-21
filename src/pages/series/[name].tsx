@@ -191,11 +191,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const posts = blog.posts.filter((post) => post.series?.name === series.name);
 
   return {
-    props: {
-      series,
-      posts,
-      blog,
-    },
+    props: JSON.parse(
+      JSON.stringify({
+        series,
+        posts,
+        blog,
+      })
+    ),
   };
 };
 

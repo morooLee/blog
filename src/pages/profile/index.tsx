@@ -89,9 +89,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   });
 
   return {
-    props: {
-      content,
-      blog,
-    },
+    props: JSON.parse(
+      JSON.stringify({
+        content,
+        blog,
+      })
+    ),
   };
 };

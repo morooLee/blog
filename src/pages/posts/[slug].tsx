@@ -138,7 +138,9 @@ export default function Post({ post, series, content, toc, blog }: Props) {
         <ItemListJsonLD
           name={`${post.series} Series`}
           description={`${post.title} 포스트의 시리즈 모음`}
-          posts={blog.posts.filter(({ series }) => series === post.series)}
+          posts={blog.posts.filter(
+            ({ series }) => series?.name === post.series?.name
+          )}
         />
       ) : null}
       {/* <JsonLd
@@ -200,13 +202,13 @@ export default function Post({ post, series, content, toc, blog }: Props) {
           id="post-article"
           className="daum-wm-content markdown dark:markdown-invert max-w-none p-5"
         >
-          {/* <Adsense
+          <Adsense
             style={{ display: 'block', textAlign: 'center' }}
             adClient="ca-pub-5229752344777211"
             adSlot={3625286179}
             adLayout="in-article"
             adFormat="fluid"
-          /> */}
+          />
           <MDXRemote {...content} components={MarkdownComponents} />
         </article>
         {post.series ? (
@@ -228,13 +230,13 @@ export default function Post({ post, series, content, toc, blog }: Props) {
             />
           </div>
         ) : null}
-        {/* <Adsense
+        <Adsense
           style={{ display: 'block', textAlign: 'center' }}
           adClient="ca-pub-5229752344777211"
           adSlot={3257760132}
           adLayout="in-article"
           adFormat="fluid"
-        /> */}
+        />
         <ReactUtterances
           repo="morooLee/github-pages"
           type="pathname"
@@ -288,13 +290,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   });
 
   return {
-    props: {
-      post,
-      series,
-      content,
-      toc,
-      blog,
-    },
+    props: JSON.parse(
+      JSON.stringify({
+        post,
+        series,
+        content,
+        toc,
+        blog,
+      })
+    ),
   };
 };
 
