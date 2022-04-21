@@ -37,10 +37,12 @@ export default function Adsense({
   fullWidthResponsive,
 }: Props) {
   useEffect(() => {
-    // window.onload = function () {
-    //   (window.adsbygoogle = window.adsbygoogle || []).push({});
-    // };
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    if (window) {
+      window.onload = function () {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      };
+    }
+    // (window.adsbygoogle = window.adsbygoogle || []).push({});
   }, []);
 
   return (
