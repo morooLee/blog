@@ -81,6 +81,8 @@ export default function TocAside({ toc, activeHeadingId }: Props) {
         <SectionContent isFolding={false}>
           <div className="p-5">
             <Adsense
+              id="aside-ad-slot"
+              className="aside-ad-slot"
               adClient="ca-pub-5229752344777211"
               adSlot={9218864958}
               adFormat="auto"

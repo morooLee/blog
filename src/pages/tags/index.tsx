@@ -229,7 +229,7 @@ export default function Tags({ blog }: Props) {
             />
           </div>
         </div>
-        <div className="px-5 pb-5">
+        <div className="px-5 pb-10">
           {currentTags.length > 0 ? (
             <ul className="flex flex-col gap-5">
               {currentTags.map((tag) => {

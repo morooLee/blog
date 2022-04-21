@@ -22,6 +22,8 @@ import {
   BreadcrumbJsonLD,
   ItemListJsonLD,
 } from 'src/lib/JsonLD';
+import PostCard from 'src/components/PostCard';
+import PostCardList from 'src/components/PostCardList';
 
 interface Props {
   post: Post;
@@ -202,22 +204,25 @@ export default function Post({ post, series, content, toc, blog }: Props) {
           id="post-article"
           className="daum-wm-content markdown dark:markdown-invert max-w-none p-5"
         >
-          <Adsense
-            style={{ display: 'block' }}
-            className="px-5"
-            adClient="ca-pub-5229752344777211"
-            adSlot={3625286179}
-            adLayout="in-article"
-            adFormat="fluid"
-          />
+          <div>
+            <Adsense
+              style={{ display: 'block' }}
+              adClient="ca-pub-5229752344777211"
+              adSlot={3625286179}
+              adLayout="in-article"
+              adFormat="fluid"
+            />
+          </div>
           <MDXRemote {...content} components={MarkdownComponents} />
-          <Adsense
-            style={{ display: 'block' }}
-            adClient="ca-pub-5229752344777211"
-            adSlot={3257760132}
-            adLayout="in-article"
-            adFormat="fluid"
-          />
+          <div className="pt-10 pb-10">
+            <Adsense
+              style={{ display: 'block' }}
+              adClient="ca-pub-5229752344777211"
+              adSlot={3257760132}
+              adLayout="in-article"
+              adFormat="fluid"
+            />
+          </div>
         </article>
         {post.series ? (
           <div className="mx-5 pt-5 mb-10 border-t">
@@ -238,15 +243,40 @@ export default function Post({ post, series, content, toc, blog }: Props) {
             />
           </div>
         ) : null}
-        <ReactUtterances
-          className="pt-10"
-          repo="morooLee/github-pages"
-          type="pathname"
-          label="comments"
-          theme={isDarkMode ? 'github-dark' : 'github-light'}
-          async={false}
-        />
-        <div className="px-5 pb-5">
+        <div className="px-5 pb-10">
+          <p className="text-3xl font-bold pb-5">Comments</p>
+          <ReactUtterances
+            repo="morooLee/github-pages"
+            type="pathname"
+            label="comments"
+            theme={isDarkMode ? 'github-dark' : 'github-light'}
+            async={false}
+          />
+        </div>
+        <div className="px-5 pb-10">
+          <p className="text-3xl font-bold pb-5">Sub Category</p>
+          <PostCardList
+            title={post.category.sub}
+            posts={blog.posts.filter(
+              ({ category }) => category.sub === post.category.sub
+            )}
+            // isAllFolding={false}
+            href="/categories/[main]/[sub]"
+            as={`/categories/${post.category.main}/${post.category.sub}`}
+          />
+          {/* <ul className="py-5 flex gap-5 overflow-y-auto snap-x">
+            {blog.posts
+              .filter(({ category }) => category.sub === post.category.sub)
+              .map((post) => {
+                return (
+                  <li key={post.slug} className="snap-start scroll-ml-5">
+                    <PostCard post={post} />
+                  </li>
+                );
+              })}
+          </ul> */}
+        </div>
+        <div className="px-5 pt-10 pb-5">
           <Adsense
             style={{ display: 'block' }}
             adClient="ca-pub-5229752344777211"

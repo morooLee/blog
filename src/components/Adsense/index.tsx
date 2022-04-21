@@ -1,5 +1,13 @@
 import { useRouter } from 'next/router';
-import React, { CSSProperties, useEffect } from 'react';
+import Script from 'next/script';
+import React, {
+  ChangeEvent,
+  CSSProperties,
+  DetailedHTMLProps,
+  InsHTMLAttributes,
+  useEffect,
+  useState,
+} from 'react';
 
 declare global {
   interface Window {
@@ -17,6 +25,7 @@ type AdFormatType =
 type AdLayoutType = 'in-article';
 
 interface Props {
+  id?: string;
   className?: string;
   style?: CSSProperties;
   adClient: string;
@@ -28,6 +37,7 @@ interface Props {
 }
 
 export default function Adsense({
+  id,
   className,
   style,
   adClient,
@@ -39,26 +49,46 @@ export default function Adsense({
 }: Props) {
   const router = useRouter();
 
+  function pushAds(event: ChangeEvent<HTMLModElement>) {
+    const element = event.target;
+    if (element.style.display === 'block') {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (error: any) {
+        console.error(error);
+      }
+    }
+  }
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (error: any) {
-      console.error(error);
+    const asideAd = document.getElementById('aside-ad-slot');
+
+    if (asideAd) {
+      const compStyles = window.getComputedStyle(asideAd);
+
+      console.log(compStyles.getPropertyValue('display'));
+
+      if (compStyles.getPropertyValue('display') !== 'none') {
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (error: any) {
+          console.error(error);
+        }
+      }
     }
   }, []);
 
   return (
-    <div key={router.asPath.split('?')[0]}>
-      <ins
-        className={className ? `adsbygoogle ${className}` : 'adsbygoogle'}
-        style={style ?? { display: 'block' }}
-        data-ad-client={adClient}
-        data-ad-slot={adSlot}
-        data-ad-layout={adLayout}
-        data-ad-layout-key={adLayoutKey}
-        data-ad-format={adFormat ?? 'auto'}
-        data-full-width-responsive={fullWidthResponsive ?? 'true'}
-      ></ins>
-    </div>
+    <ins
+      id={id}
+      key={router.asPath.split('?')[0]}
+      className={className ? `adsbygoogle ${className}` : 'adsbygoogle'}
+      style={style ?? { width: '100%' }}
+      data-ad-client={adClient}
+      data-ad-slot={adSlot}
+      data-ad-layout={adLayout}
+      data-ad-layout-key={adLayoutKey}
+      data-ad-format={adFormat ?? 'auto'}
+      data-full-width-responsive={fullWidthResponsive ?? 'true'}
+    ></ins>
   );
 }

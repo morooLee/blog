@@ -61,7 +61,7 @@ export default function MainCategories({ category, posts, blog }: Props) {
         <div>
           <Location title="Main Category" />
         </div>
-        <div className="max-w-none px-5 pb-5">
+        <div className="max-w-none px-5 pb-10">
           <SubCategoryList
             mainCategory={category}
             posts={posts}

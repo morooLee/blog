@@ -128,7 +128,7 @@ export default function Categories({ blog }: Props) {
             />
           </div>
         </div>
-        <div className="max-w-none px-5 pb-5">
+        <div className="max-w-none px-5 pb-10">
           <MainCategoryList
             categories={searchCategories}
             posts={blog.posts}

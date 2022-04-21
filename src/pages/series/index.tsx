@@ -128,7 +128,7 @@ export default function AllSeries({ blog }: Props) {
             />
           </div>
         </div>
-        <div className="max-w-none px-5 pb-5">
+        <div className="max-w-none px-5 pb-10">
           {searchSeries.length > 0 ? (
             <ul className="flex flex-col gap-5">
               {searchSeries.map((series) => {

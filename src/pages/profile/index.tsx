@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import Location from 'src/components/Location';
 import MarkdownComponents from 'src/components/MarkdownComponents';
 import { BreadcrumbJsonLD, PersonJsonLD, WebPageJsonLD } from 'src/lib/JsonLD';
+import Adsense from 'src/components/Adsense';
 
 interface Props {
   content: MDXRemoteSerializeResult;
@@ -68,9 +69,17 @@ export default function Profile({ content, blog }: Props) {
         </div>
         <div
           id="profile-content"
-          className="markdown dark:markdown-invert max-w-none px-5 pb-5"
+          className="markdown dark:markdown-invert max-w-none px-5 pb-10"
         >
           <MDXRemote {...content} components={MarkdownComponents} />
+        </div>
+        <div className="px-5 pb-5">
+          <Adsense
+            style={{ display: 'block' }}
+            adClient="ca-pub-5229752344777211"
+            adSlot={8271717976}
+            adFormat="autorelaxed"
+          />
         </div>
       </MainLayout>
     </>

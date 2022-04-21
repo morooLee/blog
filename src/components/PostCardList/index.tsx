@@ -8,7 +8,7 @@ import { UrlObject } from 'url';
 interface Props {
   title: string;
   posts: Post[];
-  isAllFolding: boolean;
+  isAllFolding?: boolean;
   href?: string | UrlObject;
   as?: string & (string | UrlObject);
 }
@@ -38,9 +38,14 @@ export default function PostCardList({
               <p title={title}>{`${title} (${posts.length})`}</p>
             </a>
           </Link>
-        ) : null}
+        ) : (
+          <p
+            className="text-accent text-xl font-semibold inline-block"
+            title={title}
+          >{`${title} (${posts.length})`}</p>
+        )}
       </CardSummary>
-      <CardDetail isFolding={isFolding}>
+      <CardDetail isFolding={isFolding ?? false}>
         <ul className="p-5 flex gap-5 overflow-y-auto snap-x">
           {posts.map((post) => {
             return (

@@ -144,7 +144,7 @@ export default function Series({ series, posts, blog }: Props) {
             onChange={onSearchChange}
           /> */}
         </div>
-        <div className="max-w-none px-5 pb-5">
+        <div className="max-w-none px-5 pb-10">
           {searchPosts.length > 0 ? (
             <ul className="flex flex-col gap-10">
               {searchPosts.map((post) => {

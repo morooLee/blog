@@ -222,6 +222,29 @@
     text-decoration: underline;
   }
 
+  .aside-ad-slot {
+    display: none;
+  }
+  @media (max-width: 1279px) {
+    .aside-ad-slot {
+      display: none;
+    }
+  }
+  @media (min-width: 1280px) {
+    .aside-ad-slot {
+      display: block;
+      width: 280px;
+      /* width: 13rem; */
+    }
+  }
+  @media (min-width: 1536px) {
+    .aside-ad-slot {
+      display: block;
+      width: 280px;
+      /* width: 17.5rem; */
+    }
+  }
+
   :root {
     --color-bg-inset: #f6f8fa;
     --color-header-logo: #ffffff;
