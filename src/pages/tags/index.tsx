@@ -32,7 +32,7 @@ export default function Tags({ blog }: Props) {
     },
   ];
 
-  const [isAll, setIsAll] = useState<boolean>(true);
+  const [isAll, setIsAll] = useState<boolean>(false);
   const [currentTags, setCurrentTags] = useState<Tag[]>([...blog.tags]);
   const [isAllFolding, setIsAllFolding] = useState<boolean>(false);
 
@@ -95,7 +95,7 @@ export default function Tags({ blog }: Props) {
         setCurrentTags([...blog.tags]);
       }
     } else {
-      setCurrentTags([...blog.tags]);
+      setCurrentTags([]);
     }
   }, [blog.tags, query.tag]);
 

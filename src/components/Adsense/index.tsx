@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React, { CSSProperties, useEffect } from 'react';
 
 declare global {
@@ -36,6 +37,8 @@ export default function Adsense({
   adFormat,
   fullWidthResponsive,
 }: Props) {
+  const router = useRouter();
+
   useEffect(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -45,17 +48,16 @@ export default function Adsense({
   }, []);
 
   return (
-    <>
-      <ins
-        className={className ? `adsbygoogle ${className}` : 'adsbygoogle'}
-        style={style ?? { display: 'block' }}
-        data-ad-client={adClient}
-        data-ad-slot={adSlot}
-        data-ad-layout={adLayout}
-        data-ad-layout-key={adLayoutKey}
-        data-ad-format={adFormat ?? 'auto'}
-        data-full-width-responsive={fullWidthResponsive ?? 'true'}
-      ></ins>
-    </>
+    <ins
+      key={router.asPath.split('?')[0]}
+      className={className ? `adsbygoogle ${className}` : 'adsbygoogle'}
+      style={style ?? { display: 'block' }}
+      data-ad-client={adClient}
+      data-ad-slot={adSlot}
+      data-ad-layout={adLayout}
+      data-ad-layout-key={adLayoutKey}
+      data-ad-format={adFormat ?? 'auto'}
+      data-full-width-responsive={fullWidthResponsive ?? 'true'}
+    ></ins>
   );
 }
