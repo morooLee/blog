@@ -65,8 +65,6 @@ export default function Adsense({
     if (asideAd) {
       const compStyles = window.getComputedStyle(asideAd);
 
-      console.log(compStyles.getPropertyValue('display'));
-
       if (compStyles.getPropertyValue('display') !== 'none') {
         try {
           (window.adsbygoogle = window.adsbygoogle || []).push({});

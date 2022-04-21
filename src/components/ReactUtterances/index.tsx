@@ -47,18 +47,6 @@ export default function ReactUtterances(props: Props) {
     issueNumber,
   } = props;
 
-  const changeTheme = (theme: Theme = 'github-light') => {
-    const iframe =
-      document.querySelector<HTMLIFrameElement>('.utterances-frame');
-
-    if (iframe && iframe.contentWindow) {
-      iframe.contentWindow.postMessage(
-        { type: 'set-theme', theme },
-        'https://utteranc.es'
-      );
-    }
-  };
-
   useEffect(() => {
     const rootElement = scriptRef.current;
     const scriptElement = document.createElement('script');
@@ -102,13 +90,35 @@ export default function ReactUtterances(props: Props) {
     }
 
     return () => {
-      if (rootElement && rootElement.firstChild) {
-        rootElement.removeChild(rootElement.firstChild);
+      if (!isLoading && rootElement && rootElement.firstChild) {
+        rootElement.firstChild.remove();
       }
+      // if (rootElement?.children) {
+      //   for (const child of rootElement?.children) {
+      //     child.remove();
+      //   }
+      // }
+      // const container = document.querySelector<HTMLDivElement>('.utterances');
+      // if (container) {
+      //   console.log(container);
+      //   container.remove();
+      // }
     };
   }, []);
 
   useEffect(() => {
+    const changeTheme = (theme: Theme = 'github-light') => {
+      const iframe =
+        document.querySelector<HTMLIFrameElement>('.utterances-frame');
+
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.postMessage(
+          { type: 'set-theme', theme },
+          'https://utteranc.es'
+        );
+      }
+    };
+
     if (!isLoading) {
       changeTheme(theme);
     }
