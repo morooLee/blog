@@ -250,7 +250,7 @@ export default function Post({ post, series, content, toc, blog }: Props) {
             type="pathname"
             label="comments"
             theme={isDarkMode ? 'github-dark' : 'github-light'}
-            async={false}
+            async={true}
           />
         </div>
         <div className="px-5 pb-10">

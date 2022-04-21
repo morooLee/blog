@@ -109,7 +109,9 @@ export default function ReactUtterances(props: Props) {
   }, []);
 
   useEffect(() => {
-    changeTheme(theme);
+    if (!isLoading) {
+      changeTheme(theme);
+    }
   }, [theme, isLoading]);
 
   return (
