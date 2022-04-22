@@ -48,13 +48,14 @@ export default function Adsense({
   adFormat,
   fullWidthResponsive,
 }: Props) {
+  const [currentPath, setCurrentPath] = useState<string>('');
   const adRef = useRef<HTMLModElement>(null);
   const router = useRouter();
 
   useEffect(() => {
     const asideAd = adRef.current;
 
-    if (asideAd) {
+    if (asideAd && currentPath === decodeURI(router.asPath).split('?')[0]) {
       const compStyles = window.getComputedStyle(asideAd);
 
       if (compStyles.getPropertyValue('display') !== 'none') {
@@ -65,7 +66,16 @@ export default function Adsense({
         }
       }
     }
-  }, []);
+  }, [currentPath, router.asPath]);
+
+  useEffect(() => {
+    const asPath = decodeURI(router.asPath).split('?')[0];
+    console.log(asPath);
+    console.log(currentPath);
+    if (asPath !== currentPath) {
+      setCurrentPath(asPath);
+    }
+  }, [router.asPath]);
 
   return (
     <ins
