@@ -6,6 +6,7 @@ import React, {
   DetailedHTMLProps,
   InsHTMLAttributes,
   useEffect,
+  useRef,
   useState,
 } from 'react';
 
@@ -47,20 +48,11 @@ export default function Adsense({
   adFormat,
   fullWidthResponsive,
 }: Props) {
+  const adRef = useRef<HTMLModElement>(null);
   const router = useRouter();
 
-  function pushAds(event: ChangeEvent<HTMLModElement>) {
-    const element = event.target;
-    if (element.style.display === 'block') {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (error: any) {
-        console.error(error);
-      }
-    }
-  }
   useEffect(() => {
-    const asideAd = document.getElementById('aside-ad-slot');
+    const asideAd = adRef.current;
 
     if (asideAd) {
       const compStyles = window.getComputedStyle(asideAd);
@@ -79,6 +71,7 @@ export default function Adsense({
     <ins
       id={id}
       key={router.asPath.split('?')[0]}
+      ref={adRef}
       className={className ? `adsbygoogle ${className}` : 'adsbygoogle'}
       style={style ?? { width: '100%' }}
       data-ad-client={adClient}

@@ -47,8 +47,21 @@ export default function ReactUtterances(props: Props) {
     issueNumber,
   } = props;
 
+  const changeTheme = (theme: Theme = 'github-light') => {
+    const iframe =
+      document.querySelector<HTMLIFrameElement>('.utterances-frame');
+
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage(
+        { type: 'set-theme', theme },
+        'https://utteranc.es'
+      );
+    }
+  };
+
   useEffect(() => {
     const rootElement = scriptRef.current;
+
     const scriptElement = document.createElement('script');
     scriptElement.src = src ?? 'https://utteranc.es/client.js';
     scriptElement.async = async ?? true;
@@ -75,6 +88,11 @@ export default function ReactUtterances(props: Props) {
         scriptElement.setAttribute('issue-term', type);
       }
     }
+
+    if (rootElement) {
+      rootElement.appendChild(scriptElement);
+    }
+
     scriptElement.onload = () => {
       const iframe =
         document.querySelector<HTMLIFrameElement>('.utterances-frame');
@@ -82,12 +100,10 @@ export default function ReactUtterances(props: Props) {
       if (iframe) {
         iframe.onload = () => {
           setIsLoading(false);
+          changeTheme(theme);
         };
       }
     };
-    if (rootElement) {
-      rootElement.appendChild(scriptElement);
-    }
 
     return () => {
       if (!isLoading && rootElement && rootElement.firstChild) {
@@ -107,18 +123,15 @@ export default function ReactUtterances(props: Props) {
   }, []);
 
   useEffect(() => {
-    const changeTheme = (theme: Theme = 'github-light') => {
-      const iframe =
-        document.querySelector<HTMLIFrameElement>('.utterances-frame');
+    // const iframe =
+    //   document.querySelector<HTMLIFrameElement>('.utterances-frame');
 
-      if (iframe && iframe.contentWindow) {
-        iframe.contentWindow.postMessage(
-          { type: 'set-theme', theme },
-          'https://utteranc.es'
-        );
-      }
-    };
-
+    // if (iframe) {
+    //   iframe.onload = () => {
+    //     changeTheme(theme);
+    //   };
+    // }
+    // console.log('sdsdsdsdsdsdsd');
     if (!isLoading) {
       changeTheme(theme);
     }
@@ -133,7 +146,7 @@ export default function ReactUtterances(props: Props) {
       }
       ref={scriptRef}
     >
-      {isLoading ? <div>Loading script...</div> : null}
+      {/* {isLoading ? <div>Loading script...</div> : null} */}
     </div>
   );
 }
