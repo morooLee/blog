@@ -57,7 +57,6 @@ export default function ReactUtterances({
     const iframe =
       document.querySelector<HTMLIFrameElement>('.utterances-frame');
 
-    console.log(theme);
     if (iframe && iframe.contentWindow) {
       iframe.contentWindow.postMessage(
         { type: 'set-theme', theme },

@@ -52,14 +52,14 @@ export default function Adsense({
   const adRef = useRef<HTMLModElement>(null);
   const router = useRouter();
 
-  // const setCurrentPath = (path: string): string => {
-  //   return decodeURI(path).split('?')[0];
-  // };
+  const setCurrentPath = (path: string): string => {
+    return decodeURI(path).split('?')[0];
+  };
 
-  // const currentPath = useMemo<string>(
-  //   () => setCurrentPath(router.asPath),
-  //   [router.asPath]
-  // );
+  const currentPath = useMemo<string>(
+    () => setCurrentPath(router.asPath),
+    [router.asPath]
+  );
 
   useEffect(() => {
     const adsense = adRef.current;
@@ -75,7 +75,7 @@ export default function Adsense({
         }
       }
     }
-  }, []);
+  }, [currentPath]);
 
   return (
     <div key={router.asPath.split('?')[0]} className={className}>
