@@ -204,26 +204,24 @@ export default function Post({ post, series, content, toc, blog }: Props) {
           id="post-article"
           className="daum-wm-content markdown dark:markdown-invert max-w-none p-5"
         >
-          <div>
-            <Adsense
-              style={{ display: 'block' }}
-              adClient="ca-pub-5229752344777211"
-              adSlot={3625286179}
-              adLayout="in-article"
-              adFormat="fluid"
-            />
-          </div>
+          <Adsense
+            // style={{ display: 'block' }}
+            adClient="ca-pub-5229752344777211"
+            adSlot={3625286179}
+            adLayout="in-article"
+            adFormat="fluid"
+          />
           <MDXRemote {...content} components={MarkdownComponents} />
-          <div className="pt-10 pb-10">
-            <Adsense
-              style={{ display: 'block' }}
-              adClient="ca-pub-5229752344777211"
-              adSlot={3257760132}
-              adLayout="in-article"
-              adFormat="fluid"
-            />
-          </div>
+          <Adsense
+            className="pt-10 pb-10"
+            // style={{ display: 'block' }}
+            adClient="ca-pub-5229752344777211"
+            adSlot={3257760132}
+            adLayout="in-article"
+            adFormat="fluid"
+          />
         </article>
+
         {post.series ? (
           <div className="mx-5 pt-5 mb-10 border-t">
             <Link href="/series/[name]" as={`/series/${post.series.name}`}>
@@ -246,8 +244,9 @@ export default function Post({ post, series, content, toc, blog }: Props) {
         <div className="px-5 pb-10">
           <p className="text-3xl font-bold pb-5">Comments</p>
           <ReactUtterances
-            repo="morooLee/github-pages"
-            type="pathname"
+            repo="morooLee/blog"
+            type="specific-term"
+            specificTerm={post.title}
             label="comments"
             theme={isDarkMode ? 'github-dark' : 'github-light'}
             async={true}

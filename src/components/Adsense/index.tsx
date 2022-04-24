@@ -6,6 +6,7 @@ import React, {
   DetailedHTMLProps,
   InsHTMLAttributes,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -48,15 +49,23 @@ export default function Adsense({
   adFormat,
   fullWidthResponsive,
 }: Props) {
-  const [currentPath, setCurrentPath] = useState<string>('');
   const adRef = useRef<HTMLModElement>(null);
   const router = useRouter();
 
-  useEffect(() => {
-    const asideAd = adRef.current;
+  // const setCurrentPath = (path: string): string => {
+  //   return decodeURI(path).split('?')[0];
+  // };
 
-    if (asideAd && currentPath === decodeURI(router.asPath).split('?')[0]) {
-      const compStyles = window.getComputedStyle(asideAd);
+  // const currentPath = useMemo<string>(
+  //   () => setCurrentPath(router.asPath),
+  //   [router.asPath]
+  // );
+
+  useEffect(() => {
+    const adsense = adRef.current;
+
+    if (adsense) {
+      const compStyles = window.getComputedStyle(adsense);
 
       if (compStyles.getPropertyValue('display') !== 'none') {
         try {
@@ -66,30 +75,22 @@ export default function Adsense({
         }
       }
     }
-  }, [currentPath, router.asPath]);
-
-  useEffect(() => {
-    const asPath = decodeURI(router.asPath).split('?')[0];
-    console.log(asPath);
-    console.log(currentPath);
-    if (asPath !== currentPath) {
-      setCurrentPath(asPath);
-    }
-  }, [router.asPath]);
+  }, []);
 
   return (
-    <ins
-      id={id}
-      key={router.asPath.split('?')[0]}
-      ref={adRef}
-      className={className ? `adsbygoogle ${className}` : 'adsbygoogle'}
-      style={style ?? { width: '100%' }}
-      data-ad-client={adClient}
-      data-ad-slot={adSlot}
-      data-ad-layout={adLayout}
-      data-ad-layout-key={adLayoutKey}
-      data-ad-format={adFormat ?? 'auto'}
-      data-full-width-responsive={fullWidthResponsive ?? 'true'}
-    ></ins>
+    <div key={router.asPath.split('?')[0]} className={className}>
+      <ins
+        id={id}
+        ref={adRef}
+        className="adsbygoogle"
+        style={style ?? { display: 'block' }}
+        data-ad-client={adClient}
+        data-ad-slot={adSlot}
+        data-ad-layout={adLayout}
+        data-ad-layout-key={adLayoutKey}
+        data-ad-format={adFormat ?? 'auto'}
+        data-full-width-responsive={fullWidthResponsive ?? 'true'}
+      ></ins>
+    </div>
   );
 }

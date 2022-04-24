@@ -4,8 +4,7 @@ import { useDarkModeContext } from '../../lib/DarkModeContext';
 import { RiMenuFill, RiMoonLine, RiRssFill, RiSunLine } from 'react-icons/ri';
 import { useRouter } from 'next/router';
 import MainMenu from '../MainMenu';
-import { Media } from '../Media';
-// import Img from 'react-optimized-image';
+import MediaQuery from '../MediaQuery';
 import MorooLogo from 'public/assets/moroo.svg';
 import Image from 'next/image';
 
@@ -23,24 +22,30 @@ export default function Header({ blog, currentPost }: Props) {
     setOnMobileMenu(!onMobileMenu);
   }
 
+  function handleMediaQueryChange(matches: boolean) {
+    if (!matches) {
+      setOnMobileMenu(false);
+    }
+  }
+
   useEffect(() => {
     function handleRouteChangeComplete() {
       setOnMobileMenu(false);
     }
     router.events.on('routeChangeComplete', handleRouteChangeComplete);
 
-    function handleResize() {
-      const { matches } = window.matchMedia('screen and (min-width: 1024px)');
-      if (matches) {
-        setOnMobileMenu(false);
-      }
-    }
+    // function handleResize() {
+    //   const { matches } = window.matchMedia('screen and (min-width: 1024px)');
+    //   if (matches) {
+    //     setOnMobileMenu(false);
+    //   }
+    // }
 
-    window.addEventListener('resize', handleResize);
+    // window.addEventListener('resize', handleResize);
 
     return () => {
       router.events.off('routeChangeComplete', handleRouteChangeComplete);
-      window.removeEventListener('resize', handleResize);
+      // window.removeEventListener('resize', handleResize);
     };
   }, [router.events]);
 
@@ -150,15 +155,21 @@ export default function Header({ blog, currentPost }: Props) {
         </div>
       </header>
       {onMobileMenu ? (
-        <div className="z-20 fixed w-full mx-auto">
-          <div
-            className="fixed left-0 top-16 right-0 bottom-0 bg-overlay/20 backdrop-blur-sm overflow-y-scroll overscroll-none"
-            onClick={() => setOnMobileMenu(false)}
-          />
-          <div className="px-2 pt-3 mb-3 absolute w-full overflow-y-scroll overscroll-none">
-            <MainMenu isExpand={false} blog={blog} currentPost={currentPost} />
+        <MediaQuery maxWidth={1023} onChange={handleMediaQueryChange}>
+          <div className="z-20 fixed w-full mx-auto">
+            <div
+              className="fixed left-0 top-16 right-0 bottom-0 bg-overlay/20 backdrop-blur-sm overflow-y-scroll overscroll-none"
+              onClick={() => setOnMobileMenu(false)}
+            />
+            <div className="px-2 pt-3 mb-3 absolute w-full overflow-y-scroll overscroll-none">
+              <MainMenu
+                isExpand={false}
+                blog={blog}
+                currentPost={currentPost}
+              />
+            </div>
           </div>
-        </div>
+        </MediaQuery>
       ) : null}
     </>
   );

@@ -12,7 +12,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@artsy/fresnel": "^3.4.1",
     "@jsdevtools/rehype-toc": "^3.0.2",
     "@mapbox/hast-util-to-jsx": "^2.0.0",
     "axios": "^0.26.1",
@@ -28,6 +27,7 @@
     "react-dom": "17.0.2",
     "react-gtm-module": "^2.0.11",
     "react-icons": "^4.3.1",
+    "react-responsive": "^9.0.0-beta.6",
     "react-toastify": "^8.2.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.0.1",

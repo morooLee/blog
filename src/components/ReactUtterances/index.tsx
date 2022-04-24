@@ -1,4 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 type Type =
   | 'pathname'
@@ -32,34 +38,36 @@ interface Props {
   async?: boolean;
 }
 
-export default function ReactUtterances(props: Props) {
+export default function ReactUtterances({
+  className,
+  src,
+  repo,
+  type,
+  specificTerm,
+  issueNumber,
+  label,
+  theme,
+  crossorigin,
+  async,
+}: Props) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const scriptRef = useRef<HTMLDivElement>(null);
-  const {
-    className,
-    src,
-    repo,
-    theme,
-    crossorigin,
-    async,
-    type,
-    specificTerm,
-    issueNumber,
-  } = props;
 
-  const changeTheme = (theme: Theme = 'github-light') => {
+  const changeTheme = useCallback(() => {
     const iframe =
       document.querySelector<HTMLIFrameElement>('.utterances-frame');
 
+    console.log(theme);
     if (iframe && iframe.contentWindow) {
       iframe.contentWindow.postMessage(
         { type: 'set-theme', theme },
         'https://utteranc.es'
       );
     }
-  };
+  }, [theme]);
 
   useEffect(() => {
+    setIsLoading(true);
     const rootElement = scriptRef.current;
 
     const scriptElement = document.createElement('script');
@@ -89,10 +97,6 @@ export default function ReactUtterances(props: Props) {
       }
     }
 
-    if (rootElement) {
-      rootElement.appendChild(scriptElement);
-    }
-
     scriptElement.onload = () => {
       const iframe =
         document.querySelector<HTMLIFrameElement>('.utterances-frame');
@@ -100,15 +104,29 @@ export default function ReactUtterances(props: Props) {
       if (iframe) {
         iframe.onload = () => {
           setIsLoading(false);
-          changeTheme(theme);
         };
       }
     };
 
+    if (rootElement) {
+      rootElement.appendChild(scriptElement);
+    }
+
     return () => {
-      if (!isLoading && rootElement && rootElement.firstChild) {
-        rootElement.firstChild.remove();
+      const utterances = document.querySelector<HTMLDivElement>('.utterances');
+
+      if (utterances) {
+        utterances.remove();
       }
+      // if (rootElement && rootElement.firstChild) {
+      //   console.log('Remove', rootElement.firstChild);
+      //   rootElement.firstChild.remove();
+      // }
+      // console.log('ROOT_ELEMENT', rootElement);
+      // if (!isLoading && rootElement && rootElement.firstChild) {
+      //   console.log('Remove');
+      //   rootElement.firstChild.remove();
+      // }
       // if (rootElement?.children) {
       //   for (const child of rootElement?.children) {
       //     child.remove();
@@ -120,22 +138,13 @@ export default function ReactUtterances(props: Props) {
       //   container.remove();
       // }
     };
-  }, []);
+  }, [specificTerm]);
 
   useEffect(() => {
-    // const iframe =
-    //   document.querySelector<HTMLIFrameElement>('.utterances-frame');
-
-    // if (iframe) {
-    //   iframe.onload = () => {
-    //     changeTheme(theme);
-    //   };
-    // }
-    // console.log('sdsdsdsdsdsdsd');
     if (!isLoading) {
-      changeTheme(theme);
+      changeTheme();
     }
-  }, [theme, isLoading]);
+  }, [changeTheme, isLoading, theme]);
 
   return (
     <div

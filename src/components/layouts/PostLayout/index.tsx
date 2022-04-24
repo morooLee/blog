@@ -1,16 +1,10 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, { ReactNode } from 'react';
 import MainMenu from '../../MainMenu';
 import Footer from '../../Footer';
 import Header from '../../Header';
 import TocAside from '../../TocAside';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { Media } from '../../Media';
 import ScrollProgressBar from '../../ScrollProgressBar';
-import Adsense from 'src/components/Adsense';
-import SectionSummary from 'src/components/SectionSummary';
-import SectionContent from 'src/components/SectionContent';
-import { RiArrowUpCircleLine, RiCloseFill } from 'react-icons/ri';
-import TocList from 'src/components/TocAside/TocList';
 
 interface Props {
   children: ReactNode;

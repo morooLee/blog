@@ -2,12 +2,12 @@ import React, { ReactNode } from 'react';
 import MainMenu from '../../MainMenu';
 import Footer from '../../Footer';
 import Header from '../../Header';
-import { Media } from 'src/components/Media';
 import SectionSummary from 'src/components/SectionSummary';
 import SectionContent from 'src/components/SectionContent';
-// import Adsense from 'src/components/Adsense';
 import dynamic from 'next/dynamic';
-const Adsense = dynamic(() => import('src/components/Adsense'));
+import MediaQuery from 'src/components/MediaQuery';
+
+const Adsense = dynamic(() => import('src/components/Adsense'), { ssr: false });
 
 interface Props {
   children: ReactNode;
@@ -40,14 +40,14 @@ export default function MainLayout({ children, blog }: Props) {
                 </SectionSummary>
                 <SectionContent isFolding={false}>
                   <div className="p-5">
-                    <Adsense
-                      id="aside-ad-slot"
-                      className="aside-ad-slot"
-                      adClient="ca-pub-5229752344777211"
-                      adSlot={9218864958}
-                      adFormat="auto"
-                      fullWidthResponsive={true}
-                    />
+                    <MediaQuery minWidth={1280}>
+                      <Adsense
+                        adClient="ca-pub-5229752344777211"
+                        adSlot={9218864958}
+                        adFormat="auto"
+                        fullWidthResponsive={true}
+                      />
+                    </MediaQuery>
                   </div>
                 </SectionContent>
               </div>

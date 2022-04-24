@@ -4,11 +4,9 @@ import { RiArrowUpCircleLine } from 'react-icons/ri';
 import SectionSummary from '../SectionSummary';
 import SectionContent from '../SectionContent';
 import { TocLink } from './TocLink';
-import { TocItem, TocItemProps } from './TocItem';
+import { TocItem } from './TocItem';
 import Adsense from '../Adsense';
-import Anchor from '../MarkdownComponents/Anchor';
-import TocList from './TocList';
-import MarkdownComponents from '../MarkdownComponents';
+import MediaQuery from '../MediaQuery';
 
 interface Props {
   toc?: MDXRemoteSerializeResult;
@@ -80,14 +78,14 @@ export default function TocAside({ toc, activeHeadingId }: Props) {
         </SectionSummary>
         <SectionContent isFolding={false}>
           <div className="p-5">
-            <Adsense
-              id="aside-ad-slot"
-              className="aside-ad-slot"
-              adClient="ca-pub-5229752344777211"
-              adSlot={9218864958}
-              adFormat="auto"
-              fullWidthResponsive={true}
-            />
+            <MediaQuery minWidth={1280}>
+              <Adsense
+                adClient="ca-pub-5229752344777211"
+                adSlot={9218864958}
+                adFormat="auto"
+                fullWidthResponsive={true}
+              />
+            </MediaQuery>
           </div>
         </SectionContent>
       </div>

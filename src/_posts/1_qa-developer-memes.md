@@ -12,7 +12,7 @@ series: null
 published: true
 ---
 
-최근에 `QA와 Developer의 이해 관계` 와 관련된 밈들을 많이 보게 되었습니다.  
+최근에 `QA와 Developer의 이해 관계` 와 관련된 밈들을 많이 보게 되었습니다.
 대부분의 밈들이 해학적으로 잘 풀어내서 공감도 많이 받고 즐겁게 봤었는데요.
 
 그 중에 몇몇 밈들은 개발자 관점에서 그려지거나 QA 역할과는 모순된 부분들이 있어서 어떤 점이 문제로 생각되었는 지와 QA 관점에서 어떤 밈이 제일 괜찮았는지에 대해 가볍게 얘기해 보려 합니다.
@@ -27,15 +27,14 @@ published: true
   <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6s2UJBFDCoA?autoplay=0&start=25" title="YouTube video player" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="video-youtube"></iframe>
 </div>
 
-> This is the original Developper vs QA Engineer meme  
-> Subscribe: https://bit.ly/2MZmvXg  
-> https://www.facebook.com/lolcomediha
+> This is the original Developper vs QA Engineer meme
+> Subscribe: https://bit.ly/2MZmvXg > https://www.facebook.com/lolcomediha
 
 ### 제품에 대한 파악 및 테스트 범위 산정에 대한 문제
 
 위 영상을 보면서 제품의 목적에 대해 QA가 전혀 인지를 하지 못한다는 생각이 들었습니다.
 
-방탄 조끼 같은 경우 피탄에 의한 주요 장기들의 치명상을 줄이는게 주 목적이라 생각합니다.  
+방탄 조끼 같은 경우 피탄에 의한 주요 장기들의 치명상을 줄이는게 주 목적이라 생각합니다.
 물론 수납성과 같은 목적도 필요하고 중요하지만 이는 보조적인 성격을 띄므로 이러한 것들은 차치하고, 주 목적만을 고려한다고 하면 아래와 같다고 할 수 있습니다.
 
 1. 조끼라는 의복으로써의 역할
@@ -58,8 +57,8 @@ published: true
 - 방탄 재질
 - 방잔 무게
 
-위의 영상에서 허벅지에 피탄이 되었다고 방탄 조끼에 결함이 있다고 할 수 있을까요?  
-그리고, 허벅지에 권총을 쏜 QA는 결함을 발견한거라고 말할 수 있을까요?  
+위의 영상에서 허벅지에 피탄이 되었다고 방탄 조끼에 결함이 있다고 할 수 있을까요?
+그리고, 허벅지에 권총을 쏜 QA는 결함을 발견한거라고 말할 수 있을까요?
 아마 대다수가 "아니오"라고 말할 듯 싶네
 
 허벅지에 총을 쏘는 행위는(테스팅) 제품의 목적과 맞지 않으며 테스트 범위에도 벗어나는 행동으로 불필요한 인력 및 시간을 낭비하는 결과를 초래 할 뿐입니다.
@@ -77,14 +76,18 @@ published: true
 
 ## Meme #2 - 술집
 
-<blockquote className="twitter-tweet"><p lang="en" dir="ltr">A QA engineer walks into a bar. Orders a beer. Orders 0 beers. Orders 99999999999 beers. Orders a lizard. Orders -1 beers. Orders a ueicbksjdhd. <br/><br/>First real customer walks in and asks where the bathroom is. The bar bursts into flames, killing everyone.</p>&mdash; Brenan Keller (@brenankeller) <a href="https://twitter.com/brenankeller/status/1068615953989087232?ref_src=twsrc%5Etfw">November 30, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+<div>
+<blockquote className="twitter-tweet"><p lang="en" dir="ltr">A QA engineer walks into a bar. Orders a beer. Orders 0 beers. Orders 99999999999 beers. Orders a lizard. Orders -1 beers. Orders a ueicbksjdhd. <br/><br/>First real customer walks in and asks where the bathroom is. The bar bursts into flames, killing everyone.</p>&mdash; Brenan Keller (@brenankeller) <a href="https://twitter.com/brenankeller/status/1068615953989087232?ref_src=twsrc%5Etfw">November 30, 2018</a></blockquote>
 
-> QA 엔지니어가 술집에 들어왔습니다.  
-> 맥주를 1개 주문합니다.  
-> 맥주를 0개도 주문해 봅니다.  
-> 99999999999개도 주문해 봅니다.  
-> 도마뱀도 주문해 보고, 맥주도 -1개 주문해 보고, #ㄸㄴㄹㅇ@$ㄴ도 주문해 봅니다.  
-> 드디어 첫번째 손님이 들어왔고, 그는 화장실이 어디에 있는지 물어봤습니다.  
+<script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+</div>
+
+> QA 엔지니어가 술집에 들어왔습니다.
+> 맥주를 1개 주문합니다.
+> 맥주를 0개도 주문해 봅니다.
+> 99999999999개도 주문해 봅니다.
+> 도마뱀도 주문해 보고, 맥주도 -1개 주문해 보고, #ㄸㄴㄹㅇ@$ㄴ도 주문해 봅니다.
+> 드디어 첫번째 손님이 들어왔고, 그는 화장실이 어디에 있는지 물어봤습니다.
 > 술집은 불길에 휩쌓였고, 모두 죽었습니다.
 
 ### 테스트 계획 및 전략 수립에 대한 문제
@@ -104,29 +107,29 @@ published: true
 - Software QA가 아닌 관점에서 보자면 0개, -1개의 주문은 불필요한 테스트로 테스트 전략을 잘못 수립했다고 판단됩니다.
 - Software QA 관점에서 봐도 도마뱀(없는 메뉴로 가정) 주문이나 #ㄸㄴㄹㅇ@$ㄴ 주문은 동일한 테스트로 보여지며 이 또한 불필요한 테스트라 생각합니다.
 
-테스트 계획 및 전략을 제대로 수립했다고 해도 `완벽한 테스팅은 없는 것` 처럼 결함은 언제 어디서든 발견될 수 있습니다.  
+테스트 계획 및 전략을 제대로 수립했다고 해도 `완벽한 테스팅은 없는 것` 처럼 결함은 언제 어디서든 발견될 수 있습니다.
 하지만, 이를 뒷바침 해주는 근거로 삼기에는 영상에서의 테스팅 과정이 너무 부실하다고 생각들었습니다.
 
 ### QA 관점에서의 Meme #2 - 술집
 
 위의 글을 토대로 QA 관점으로 작성해 본다면 아래와 같을 것 같네요.
 
-> QA 엔지니어가 술집에 들어왔습니다.  
-> 맥주를 1개 주문합니다.  
-> 맥주 99999999999개도 주문해 봅니다.  
-> 도마뱀도 주문해 보고, 한번에 여러개 주문도 해봅니다.  
-> 의자에 앉아도 보고 주방에도 들어가 보고 여기저기 기웃거리며 둘러 봅니다.  
-> 드디어 첫번째 손님이 들어왔고, 그는 화장실이 어디에 있는지 물어봤습니다.  
+> QA 엔지니어가 술집에 들어왔습니다.
+> 맥주를 1개 주문합니다.
+> 맥주 99999999999개도 주문해 봅니다.
+> 도마뱀도 주문해 보고, 한번에 여러개 주문도 해봅니다.
+> 의자에 앉아도 보고 주방에도 들어가 보고 여기저기 기웃거리며 둘러 봅니다.
+> 드디어 첫번째 손님이 들어왔고, 그는 화장실이 어디에 있는지 물어봤습니다.
 > 그리곤 주문도 하지 않은체 나가버렸고, 그 손님은 그 술집의 첫번째이자 마지막 손님이 되었습니다.
 
 혹은,
 
-> QA 엔지니어가 술집에 들어왔습니다.  
-> 맥주를 1개 주문합니다.  
-> 맥주 99999999999개도 주문해 봅니다.  
-> 도마뱀도 주문해 보고, 한번에 여러개 주문도 해봅니다.  
-> 의자에 앉아도 보고 주방에도 들어가 보고 여기저기 기웃거리며 둘러 봅니다.  
-> 드디어 첫번째 손님이 들어왔고, 그는 자리에 앉자마자 TV를 켰습니다.  
+> QA 엔지니어가 술집에 들어왔습니다.
+> 맥주를 1개 주문합니다.
+> 맥주 99999999999개도 주문해 봅니다.
+> 도마뱀도 주문해 보고, 한번에 여러개 주문도 해봅니다.
+> 의자에 앉아도 보고 주방에도 들어가 보고 여기저기 기웃거리며 둘러 봅니다.
+> 드디어 첫번째 손님이 들어왔고, 그는 자리에 앉자마자 TV를 켰습니다.
 > TV에서는 금주령에 대한 소식을 속보로 전하고 있었고, 그 손님은 그 술집의 첫번째이자 마지막 손님이 되었습니다.
 
 ## Meme #3 - 모양 맞추기 (`BEST`)
@@ -135,7 +138,7 @@ published: true
   <iframe width="100%" height="100%" src="https://www.youtube.com/embed/baY3SaIhfl0?autoplay=0" title="YouTube video player" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="video-youtube"></iframe>
 </div>
 
-> All credit goes to the talented actor, Alison Burke. Check out hers  
+> All credit goes to the talented actor, Alison Burke. Check out hers
 > TikTok: https://www.tiktok.com/@tired_actor
 
 위의 동영상을 보시면 QA가 제품의 목적 및 의도를 잘 파악하고 있다는 생각이 들었습니다.
@@ -149,13 +152,13 @@ published: true
 
 모든 밈들이 재미 있었고, 공감도 많이 되었습니다.
 
-밈이라는 것이 즐거움을 통해 공감대를 형성하다보니 다소 과장된 부분이 있는 것은 사실입니다. 그리고 저는 이를 지적하고자 본 포스트를 작성한 것도 아닙니다.  
+밈이라는 것이 즐거움을 통해 공감대를 형성하다보니 다소 과장된 부분이 있는 것은 사실입니다. 그리고 저는 이를 지적하고자 본 포스트를 작성한 것도 아닙니다.
 그저 이러한 밈들을 보면서 느꼈던 생각을 글로 표현해 보고자 하였습니다.
 
-테스팅은 결함을 발견하는 일입니다.  
+테스팅은 결함을 발견하는 일입니다.
 그러다 보니 QA는 사용자의 입장과 부정적인 시각으로 제품을 바라봅니다.
 
-이는 일상 생활에도 많은 영향을 끼치며,  
+이는 일상 생활에도 많은 영향을 끼치며,
 그러다보니 이렇게 밈에서도 문제점을 찾고 있는 **`제 자신에 대한 회고이기도 합니다.`**
 
 ## 참고한 사이트
