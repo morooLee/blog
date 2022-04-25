@@ -53,7 +53,7 @@ export default function Adsense({
   const router = useRouter();
 
   const setCurrentPath = (path: string): string => {
-    return decodeURI(path).split('?')[0];
+    return decodeURI(path).split('?')[0].split('#')[0];
   };
 
   const currentPath = useMemo<string>(
@@ -78,7 +78,7 @@ export default function Adsense({
   }, [currentPath]);
 
   return (
-    <div key={router.asPath.split('?')[0]} className={className}>
+    <div key={router.asPath.split('?')[0].split('#')[0]} className={className}>
       <ins
         id={id}
         ref={adRef}

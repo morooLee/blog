@@ -11,15 +11,16 @@ interface Props {
 }
 export function TocLink({ isActive, href, as, className, children }: Props) {
   function handleOnClick(event: MouseEvent<HTMLAnchorElement>) {
-    event.preventDefault();
+    // event.preventDefault();
 
     const hash = decodeURI(event.currentTarget.hash);
     document.querySelector(hash)?.scrollIntoView({
       behavior: 'smooth',
     });
   }
+
   return (
-    <Link href={href} as={as}>
+    <Link href={href} as={as} scroll={false}>
       <a
         onClick={handleOnClick}
         className={`${className ?? ''} inline-block pl-2 align-top text-muted ${

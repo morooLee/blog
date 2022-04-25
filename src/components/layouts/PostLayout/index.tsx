@@ -5,6 +5,7 @@ import Header from '../../Header';
 import TocAside from '../../TocAside';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import ScrollProgressBar from '../../ScrollProgressBar';
+import { RiArrowUpCircleLine, RiCloseFill } from 'react-icons/ri';
 
 interface Props {
   children: ReactNode;
@@ -20,6 +21,9 @@ export default function PostLayout({
   activeHeadingId,
   currentPost,
 }: Props) {
+  function handleOnclickTopButton() {
+    window.scrollTo(0, 0);
+  }
   return (
     <>
       <Header blog={blog} currentPost={currentPost} />
@@ -41,17 +45,15 @@ export default function PostLayout({
             <TocAside toc={toc} activeHeadingId={activeHeadingId} />
           </aside>
         </div>
-        {/* <Media lessThan="xl" className="fixed z-10 right-5 bottom-5">
-          <div className="bg-btn border rounded-tl-full rounded-tr-full rounded-bl-full p-5">
-            <button className="absolute bottom-0 right-0 text-2xl">
-              <RiCloseFill />
-            </button>
-            <div>
-              <RiArrowUpCircleLine className="text-2xl inline-block mr-1" />
-              <span>TOP</span>
-            </div>
-          </div>
-        </Media> */}
+        <div className="fixed xl:hidden z-10 right-5 bottom-5">
+          <button
+            onClick={handleOnclickTopButton}
+            className="bg-btn border rounded-full rounded-tl-full rounded-tr-full rounded-bl-full px-3 py-2"
+          >
+            <RiArrowUpCircleLine className="text-2xl inline-block mr-2" />
+            <span>TOP</span>
+          </button>
+        </div>
       </div>
       <Footer />
     </>

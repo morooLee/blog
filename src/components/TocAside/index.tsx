@@ -27,6 +27,10 @@ export default function TocAside({ toc, activeHeadingId }: Props) {
     }
   }
 
+  function handleOnclickTopButton() {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <div className="w-full lg:py-5 flex flex-col gap-2">
       <div className="bg-canvas border rounded-md">
@@ -44,12 +48,21 @@ export default function TocAside({ toc, activeHeadingId }: Props) {
         </SectionSummary>
         <SectionContent isFolding={isFolding}>
           <div className="p-5">
-            <a href="#" className="group inline-block">
+            {/* <a href="#" className="group inline-block">
               <RiArrowUpCircleLine className="inline-block text-2xl group-hover:text-link-accent" />
               <span className="inline-block ml-1 align-middle group-hover:underline group-hover:text-link-accent">
                 맨위로
               </span>
-            </a>
+            </a> */}
+            <button
+              className="group inline-block"
+              onClick={handleOnclickTopButton}
+            >
+              <RiArrowUpCircleLine className="inline-block text-2xl group-hover:text-link-accent" />
+              <span className="inline-block ml-1 align-middle group-hover:underline group-hover:text-link-accent">
+                맨위로
+              </span>
+            </button>
             {toc ? (
               <MDXRemote
                 {...toc}

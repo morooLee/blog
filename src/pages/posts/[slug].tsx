@@ -24,6 +24,13 @@ import {
 } from 'src/lib/JsonLD';
 import PostCard from 'src/components/PostCard';
 import PostCardList from 'src/components/PostCardList';
+import {
+  RiFacebookFill,
+  RiFileCopyFill,
+  RiLinkedinFill,
+  RiShareBoxFill,
+  RiTwitterFill,
+} from 'react-icons/ri';
 
 interface Props {
   post: Post;
@@ -54,6 +61,12 @@ export default function Post({ post, series, content, toc, blog }: Props) {
   const [activeHeadingId, setActiveHeadingId] = useState<string | undefined>(
     undefined
   );
+  const [onShareList, setOnShareList] = useState<boolean>(false);
+
+  function handleOnShareButton() {
+    setOnShareList(!onShareList);
+  }
+
   useEffect(() => {
     const rootElement = document.getElementById('post-article');
 
