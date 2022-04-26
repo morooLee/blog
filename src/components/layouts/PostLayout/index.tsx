@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import MainMenu from '../../MainMenu';
 import Footer from '../../Footer';
 import Header from '../../Header';
@@ -22,7 +22,7 @@ export default function PostLayout({
   currentPost,
 }: Props) {
   function handleOnclickTopButton() {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   return (
     <>
@@ -45,17 +45,17 @@ export default function PostLayout({
             <TocAside toc={toc} activeHeadingId={activeHeadingId} />
           </aside>
         </div>
-        <div className="fixed xl:hidden z-10 right-5 bottom-5">
-          <button
-            onClick={handleOnclickTopButton}
-            className="bg-btn border rounded-full rounded-tl-full rounded-tr-full rounded-bl-full px-3 py-2"
-          >
-            <RiArrowUpCircleLine className="text-2xl inline-block mr-2" />
-            <span>TOP</span>
-          </button>
-        </div>
       </div>
       <Footer />
+      <div className="sticky xl:hidden z-10 bottom-5 text-right mr-5">
+        <button
+          onClick={handleOnclickTopButton}
+          className="bg-btn border rounded-full rounded-tl-full rounded-tr-full rounded-bl-full px-3 py-2"
+        >
+          <RiArrowUpCircleLine className="text-2xl inline-block mr-2" />
+          <span>TOP</span>
+        </button>
+      </div>
     </>
   );
 }

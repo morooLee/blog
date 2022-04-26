@@ -55,7 +55,7 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-        <div className="w-full text-center px-5 my-10">
+        <div className="w-full text-center px-5 py-10">
           <span className="">© 2022 </span>
           <Link href="/profile" as="/profile">
             <a className="">moroo</a>

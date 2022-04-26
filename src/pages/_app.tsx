@@ -11,7 +11,11 @@ import TagManager from 'react-gtm-module';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    TagManager.initialize({ gtmId: 'GTM-PJDMBXV' });
+    TagManager.initialize({
+      gtmId: 'GTM-PJDMBXV',
+      auth: process.env.NEXT_PUBLIC_GTAG_AUTH,
+      preview: process.env.NEXT_PUBLIC_GTAG_PREVIEW,
+    });
   }, []);
 
   return (
